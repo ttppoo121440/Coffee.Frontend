@@ -1,0 +1,57 @@
+.btn-primary{
+  font-size: 24px;
+  font-weight: 700;
+  padding: 20px 117px;
+  background: transparent;
+  color: $primary;
+  border: 2px solid $primary;
+  border-radius: 5px;
+
+  &:hover{
+    background: $primary;
+    color: $white;
+  }
+}
+
+.btn{
+  font-size: 12px;
+  font-weight: 700;
+  background: transparent;
+  color: $primary;
+  border-radius: 5px;
+  border: 2px solid $primary;
+  &:hover{
+    background: $primary;
+    color: $white;
+  }
+
+  &-icon{
+    background: transparent;
+    border-radius: 10px;
+    &:hover{
+      background: $white;
+      color: $white;
+    }
+  }
+
+  &.disabled{
+    background-color: $white;
+    border-color: $gray-300;
+    pointer-events: none;
+    color: $gray-300;
+  }
+
+  &-right{
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+  }
+  &-left{
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+  }
+  &-input{
+    width: 50px;
+    border-radius:0;
+    border: 2px solid $primary;
+  }
+}

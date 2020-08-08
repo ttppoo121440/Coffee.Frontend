@@ -1,6 +1,6 @@
 module.exports = {
-  publicPath: "./",
-  outputDir: "./dist",
+  publicPath: './',
+  outputDir: './dist',
   productionSourceMap: false,
   devServer: {
     overlay: {
@@ -9,5 +9,5 @@ module.exports = {
     },
     disableHostCheck: true,
   },
-  lintOnSave: process.env.NODE_ENV !== "production",
+  lintOnSave: process.env.NODE_ENV !== 'production',
 };

@@ -1,0 +1,37 @@
+.pagination {
+  display: flex;
+  padding: 0;
+  margin-bottom: 50px;
+  justify-content: center;
+  
+  .page-item {
+    padding: 15px;
+
+    &.disabled .page-link {
+      background-color: $white;
+      border-color: $gray-300;
+      pointer-events: none;
+    }
+  }
+  .page-link {
+    position: relative;
+    display: block;
+    color: $gray-300;
+    background-color: $white;
+    line-height: 1.25;
+    padding: 12px 18px;
+    border: 3px solid $gray-300;
+    font-size: 20px;
+
+    &.active {
+      color: $primary;
+      border: 3px solid $primary;
+    }
+
+    &:hover {
+      color: $primary;
+      background-color: $gray-200;
+      border: 3px solid $primary;
+    }
+  }
+}

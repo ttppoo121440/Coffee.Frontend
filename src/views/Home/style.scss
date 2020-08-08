@@ -1,0 +1,60 @@
+@import "~@/assets/scss/_functions.scss";
+@import "~@/assets/scss/_variables.scss";
+@import "~@/assets/scss/mixins/_breakpoints.scss";
+
+.header {
+  z-index: 1;
+  display: flex;
+  background: transparent;
+  width: 70.5%;
+  box-shadow: 2px 5px 10px rgba(0, 0, 0, 0.3);
+  background: #fff;
+  @include media-down(lg) {
+    display: none;
+  }
+  .logo {
+    h1 {
+      width: 160px;
+      height: 200px;
+      margin-bottom: 0;
+      background: url("~@/assets/images/logo.png");
+      text-indent: 101%;
+      white-space: nowrap;
+      overflow: hidden;
+    }
+  }
+
+  &-menu {
+    margin: 0;
+    padding: 0;
+    background: #fff;
+    display: flex;
+    margin-left: auto;
+
+    &-item {
+      &:last-child {
+        padding-right: 65px;
+      }
+      a {
+        padding: 88px 35px;
+        display: block;
+        color: $black;
+        font-weight: 700;
+        &:hover {
+          color: $primary;
+        }
+      }
+    }
+  }
+
+  .social {
+    position: absolute;
+    right: 0;
+    .list-item {
+      a {
+        padding: 83px 10px;
+        display: block;
+      }
+    }
+  }
+}

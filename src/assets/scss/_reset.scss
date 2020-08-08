@@ -13,6 +13,7 @@
 // Change from `box-sizing: content-box` so that `width` is not affected by `padding` or `border`.
 html {
   box-sizing: border-box;
+  height: 100%;
 }
 
 *,
@@ -24,6 +25,7 @@ html {
 // Shim for IE11
 main {
   display: block;
+  margin-top: 150px;
 }
 
 // Body
@@ -35,7 +37,10 @@ main {
 // 4. Prevent adjustments of font size after orientation changes in IE on Windows Phone and in iOS.
 // 5. Change the default tap highlight to be completely transparent in iOS.
 body {
+  position: relative;
   margin: 0; // 1
+  padding-bottom: 20rem;
+  min-height: 100%;
   font-family: $font-family-base;
   @include font-size($font-size-base);
   font-weight: $font-weight-base;
@@ -347,8 +352,7 @@ button {
 //
 // Credit: https://github.com/suitcss/base/
 button:focus {
-  outline: 1px dotted;
-  outline: 5px auto -webkit-focus-ring-color;
+  outline: none;
 }
 
 input,
@@ -528,4 +532,8 @@ template {
 // Needed for proper display in IE 10-.
 [hidden] {
   display: none !important;
+}
+
+input:focus{
+  outline: none;
 }
