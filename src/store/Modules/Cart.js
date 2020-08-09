@@ -4,13 +4,16 @@ export default {
     goodsList: localStorage.goodsList ? JSON.parse(localStorage.goodsList) : [],
   },
   actions: {
-    addCart({ state }, product) {
+    addCart({ state, commit }, product) {
       const list = state.goodsList.find((item) => item.product.id === product.id);
       if (!list) {
         state.goodsList.push({ product, quantity: 1 });
       } else {
         list.quantity += 1;
       }
+      commit('Notification/NEW_NOTICE', { id: list.quantity, content: '加入購物車成功' }, {
+        root: true,
+      });
       localStorage.setItem('goodsList', JSON.stringify(state.goodsList));
     },
     addProductCart({ state }, { product, quantity }) {

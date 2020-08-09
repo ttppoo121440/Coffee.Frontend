@@ -1,23 +1,39 @@
 <template>
   <div class="cart-footer">
     <div class="row">
-      <div class="col-lg-8" />
-      <div class="col-lg-4">
-        <div class="cart-footer-total">
-          <div class="cart-footer-pricetotal">
-            總數：{{ cartItemTotal }}<br>
-            總金額：{{ cartPriceTotal }}
+      <div class="col-md-6">
+        <div class="bg-light p-4">
+          <h3 class="mb-5 text-center border-bottom pb-3">
+            訂單摘要
+          </h3>
+          <div class="my-5 d-flex">
+            <h4 class="mr-auto">
+              總數
+            </h4> <h5>{{ cartItemTotal }}</h5>
           </div>
-          <div>
-            <button
-              class="btn btn-outline-danger"
-              type="button"
-              @click="clearCart"
-            >
-              清空
-              <i class="far fa-trash-alt" />
-            </button>
+          <div class="my-5 d-flex">
+            <h4 class="mr-auto">
+              總金額
+            </h4>
+            <h5>${{ cartPriceTotal }}</h5>
           </div>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="btn-group">
+          <button
+            type="button"
+            class="btn btn-outline btn-big w-100 mb-5"
+            @click="$router.push('/products')"
+          >
+            繼續購物
+          </button>
+          <button
+            type="button"
+            class="btn btn-big w-100"
+          >
+            下一步
+          </button>
         </div>
       </div>
     </div>
@@ -43,29 +59,3 @@ export default {
   },
 };
 </script>
-
-<style lang="scss">
-@import "~@/assets/scss/_functions.scss";
-@import "~@/assets/scss/_variables.scss";
-@import "~@/assets/scss/mixins/_breakpoints.scss";
-
- .cart-footer {
-    padding: 50px 0;
-    border-top: 1px solid $primary;
-    font-size: 1.5rem;
-
-    &-total {
-      display: flex;
-      @include media-down(md) {
-        flex-direction: row-reverse;
-      }
-    }
-    &-pricetotal {
-      margin-right: auto;
-      @include media-down(md) {
-        margin-right: 0;
-        margin-left: auto;
-      }
-    }
-  }
-</style>

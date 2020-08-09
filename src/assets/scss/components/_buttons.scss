@@ -1,28 +1,33 @@
-.btn-primary{
+.btn{
   font-size: 24px;
   font-weight: 700;
-  padding: 20px 117px;
-  background: transparent;
-  color: $primary;
-  border: 2px solid $primary;
+  background: $primary;
   border-radius: 5px;
+  padding: 10px 20px;
+  border: 2px solid $primary;
+  color: $white;
 
-  &:hover{
-    background: $primary;
-    color: $white;
+  &-outline{
+    background: transparent;
+    color: $primary;
+
+    &:hover{
+      background: $primary !important;
+      color: $white !important;
+    }
   }
-}
 
-.btn{
-  font-size: 12px;
-  font-weight: 700;
-  background: transparent;
-  color: $primary;
-  border-radius: 5px;
-  border: 2px solid $primary;
   &:hover{
-    background: $primary;
-    color: $white;
+    background: transparent;
+    color: $primary;
+  }
+
+  &-big{
+    padding: 20px 117px;
+  }
+  &-sm{
+    font-size: 16px;
+    padding: 0 10px;
   }
 
   &-icon{

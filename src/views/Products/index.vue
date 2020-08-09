@@ -1,7 +1,8 @@
 <template>
   <section>
     <Loading :active.sync="$store.state.Loading.loading" />
-    <div class="container mt-200">
+    <Banner :src="'https://cdn.stocksnap.io/img-thumbs/960w/menu-chalkboard_AO8NDC5UDL.jpg'" />
+    <div class="container">
       <h1 class="text-center my-5">
         產品專區
       </h1>
@@ -20,6 +21,7 @@
 
 <script>
 import Pagination from '@/components/Pagination';
+import Banner from '@/components/PagesHeader/Banner';
 import Product from '@/storeModule/Product';
 import ProductsList from './components/ProductsList';
 
@@ -28,6 +30,7 @@ export default {
   components: {
     Pagination,
     ProductsList,
+    Banner,
   },
   computed: {
     Pagination() {

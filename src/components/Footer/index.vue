@@ -16,8 +16,7 @@
     </div>
     <div class="copyright">
       <p class="m-0">
-        Copyright © Full Land Industrial Corp. All rights reserved. Site By
-        Mounts Studio
+        Copyright © Full Land Industrial Corp. All rights
       </p>
     </div>
   </footer>

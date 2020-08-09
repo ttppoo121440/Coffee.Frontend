@@ -1,5 +1,9 @@
 <template>
   <div id="app">
+    <Notification
+      :show.sync="$store.state.Notification.show"
+      :content.sync="$store.state.Notification.content"
+    />
     <transition
       name="page"
       appear
@@ -12,9 +16,13 @@
 </template>
 
 <script>
+import Notification from '@/components/Notification';
 
 export default {
   name: 'App',
+  components: {
+    Notification,
+  },
 };
 </script>
 

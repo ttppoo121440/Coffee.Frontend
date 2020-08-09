@@ -1,7 +1,7 @@
 <template>
   <div class="d-flex">
     <button
-      class="btn btn-right"
+      class="btn btn-sm btn-right"
       :class="{disabled:quantity===1}"
       @click="calculation(data, quantity - 1)"
     >
@@ -15,7 +15,7 @@
       @change="changeValue"
     >
     <button
-      class="btn btn-left"
+      class="btn btn-sm btn-left"
       :class="{disabled:quantity===999}"
       @click="calculation(data, quantity + 1)"
     >

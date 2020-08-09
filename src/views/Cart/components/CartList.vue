@@ -39,11 +39,11 @@
           <div class="col-md-4">
             <div class="cart-function">
               <div class="cart-price-total">
-                {{ cart.quantity * cart.product.price }}
+                ${{ cart.quantity * cart.product.price }}
               </div>
               <div class="cart-delete">
                 <button
-                  class="btn p-2"
+                  class="btn btn-outline p-2"
                   type="button"
                   @click="cartDelete(cart.product.id)"
                 >

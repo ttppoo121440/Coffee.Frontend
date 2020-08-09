@@ -47,7 +47,7 @@
         </div>
       </div>
       <div class="text-center pb-5">
-        <button class="btn-primary">
+        <button class="btn btn-outline btn-big">
           More
         </button>
       </div>

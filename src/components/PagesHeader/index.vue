@@ -24,7 +24,6 @@
     />
     <Social class="nav-social" />
   </nav>
-  <!-- <div class="pages-header-banner" /> -->
 </template>
 
 <script>
@@ -95,26 +94,6 @@ ul.nav-social {
   }
   .fa-icon {
     color: $primary;
-  }
-}
-.pages-header-banner {
-  z-index: -1;
-  position: relative;
-  background: url("https://cdn.stocksnap.io/img-thumbs/960w/menu-chalkboard_AO8NDC5UDL.jpg")
-    no-repeat center center;
-  background-size: cover;
-  top: 0;
-  right: 0;
-  left: 0;
-  height: 600px;
-  filter: brightness(50%);
-  h2 {
-    background: transparent;
-    position: absolute;
-    top: 50%;
-    left: 10%;
-    font-size: 64px;
-    color: $white;
   }
 }
 </style>

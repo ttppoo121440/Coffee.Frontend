@@ -24,10 +24,10 @@
               </h3>
               <p>售價：999</p>
               <div class="list-btns">
-                <button class="btn mr-2">
+                <button class="btn btn-outline btn-sm mr-2">
                   觀看更多
                 </button>
-                <button class="btn">
+                <button class="btn btn-sm btn-sm">
                   加到購物車
                 </button>
               </div>
@@ -49,10 +49,10 @@
               </h3>
               <p>售價：999</p>
               <div class="list-btns">
-                <button class="btn mr-2">
+                <button class="btn btn-outline btn-sm mr-2">
                   觀看更多
                 </button>
-                <button class="btn">
+                <button class="btn btn-sm">
                   加到購物車
                 </button>
               </div>
@@ -74,10 +74,10 @@
               </h3>
               <p>售價：999</p>
               <div class="list-btns">
-                <button class="btn mr-2">
+                <button class="btn btn-outline btn-sm mr-2">
                   觀看更多
                 </button>
-                <button class="btn">
+                <button class="btn btn-sm">
                   加到購物車
                 </button>
               </div>
@@ -86,7 +86,7 @@
         </div>
       </div>
       <div class="text-center pb-5">
-        <button class="btn-primary">
+        <button class="btn btn-outline btn-big">
           More
         </button>
       </div>
