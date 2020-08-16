@@ -39,7 +39,11 @@ export default {
   },
   methods: {
     calculation(product, quantity) {
-      this.$emit('calculation', { product, quantity });
+      let qty = quantity;
+      if (quantity <= 1) {
+        qty = 1;
+      }
+      this.$emit('calculation', { product, quantity: qty });
     },
     changeValue(quantity) {
       if (Number(quantity.target.value) < 1) {

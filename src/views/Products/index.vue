@@ -3,34 +3,40 @@
     <Loading :active.sync="$store.state.Loading.loading" />
     <Banner :src="'https://cdn.stocksnap.io/img-thumbs/960w/menu-chalkboard_AO8NDC5UDL.jpg'" />
     <div class="container">
-      <h1 class="text-center my-5">
-        產品專區
-      </h1>
+      <div class="text-center my-5">
+        <h1 class="title">
+          產品專區
+        </h1>
+      </div>
+      <Category
+        :categorys="product.category"
+        class="justify-content-center"
+        @categoryHandler="categoryHandler"
+      />
       <ProductsList
         class="mb-5"
-        :data="productList"
-      />
-      <Pagination
-        v-if="productList.length !==0"
-        v-bind="Pagination"
-        @ChangeNav="ChangeNav"
+        :data="filterProduct"
       />
     </div>
   </section>
 </template>
 
 <script>
-import Pagination from '@/components/Pagination';
 import Banner from '@/components/PagesHeader/Banner';
-import Product from '@/storeModule/Product';
+import Category from '@/components/Category';
 import ProductsList from './components/ProductsList';
 
 export default {
   name: 'Product',
   components: {
-    Pagination,
     ProductsList,
     Banner,
+    Category,
+  },
+  data() {
+    return {
+      category: '全部',
+    };
   },
   computed: {
     Pagination() {
@@ -39,20 +45,22 @@ export default {
         current: this.$store.state.Pagination.current,
       };
     },
-    productList() {
-      return this.$store.state.Product === undefined ? []
-        : this.$store.state.Product.productList;
+    product() {
+      return this.$store.state.Product;
+    },
+    filterProduct() {
+      return this.$store.state.Product.productList.filter((item) => (item.category === this.category
+        ? item : this.category === '全部' ? item : false));
     },
   },
   mounted() {
-    this.$registerModule(this.$store, { Product });
     this.$store.commit('Pagination/SET_CURRENT', 1);
     this.$store.dispatch('Product/getProduct');
   },
-  beforeDestroy() {
-    this.$unregisterModule(this.$store, ['Product']);
-  },
   methods: {
+    categoryHandler(category) {
+      this.category = category;
+    },
     ChangeNav(page) {
       this.$store.commit('Pagination/SET_CURRENT', page);
       this.$store.dispatch('Product/getProduct');

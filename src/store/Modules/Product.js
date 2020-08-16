@@ -5,6 +5,7 @@ export default {
   state: () => ({
     productList: [],
     product: {},
+    category: [],
   }),
 
   actions: {
@@ -23,7 +24,10 @@ export default {
       commit('Loading/LOADING', false, {
         root: true,
       });
-      console.log(result);
+      const category = new Set();
+      result.data.forEach((item) => (category.has(item.category)
+        ? false : category.add(item.category)));
+      commit('SET_CATEGORY', Array.from(category));
       return result;
     },
     async getSingleProducts({ commit }, id) {
@@ -44,6 +48,9 @@ export default {
     },
     SET_PRODUCT(state, status) {
       state.product = Object.freeze(status);
+    },
+    SET_CATEGORY(state, status) {
+      state.category = Object.freeze(status);
     },
   },
 };

@@ -1,5 +1,5 @@
 <template>
-  <div class="cart">
+  <div class="cart pt-5">
     <transition-group
       name="list"
       appear
@@ -39,7 +39,11 @@
           <div class="col-md-4">
             <div class="cart-function">
               <div class="cart-price-total">
-                ${{ cart.quantity * cart.product.price }}
+                <AnimatedNumber
+                  :duration="500"
+                  :format-value="formatToPrice"
+                  :value="cart.quantity * cart.product.price"
+                />
               </div>
               <div class="cart-delete">
                 <button
@@ -61,6 +65,7 @@
     <CartFooter
       v-if="cartList.length !== 0"
       :cart-list="cartList"
+      @next="$emit('next')"
     />
   </div>
 </template>
@@ -68,6 +73,7 @@
 <script>
 import { mapActions } from 'vuex';
 import InputNumber from '@/components/InputNumber';
+import AnimatedNumber from 'animated-number-vue';
 import CartFooter from './CartFooter';
 
 export default {
@@ -75,6 +81,7 @@ export default {
   components: {
     InputNumber,
     CartFooter,
+    AnimatedNumber,
   },
   props: {
     cartList: {
@@ -88,6 +95,9 @@ export default {
       calculation: 'Cart/calculation',
       changeValue: 'Cart/changeValue',
     }),
+    formatToPrice(value) {
+      return `$ ${value.toFixed(0)}`;
+    },
   },
 };
 </script>

@@ -1,31 +1,43 @@
 <template>
   <div id="app">
-    <Notification
-      :show.sync="$store.state.Notification.show"
-      :content.sync="$store.state.Notification.content"
+    <notifications
+      group="foo"
+      position="top center"
+      classes="my-style"
     />
     <transition
       name="page"
       appear
     >
-      <router-view
-        :key="$route.fullPath"
-      />
+      <router-view :key="$route.fullPath" />
     </transition>
   </div>
 </template>
 
 <script>
-import Notification from '@/components/Notification';
-
 export default {
   name: 'App',
-  components: {
-    Notification,
-  },
 };
 </script>
 
 <style lang="scss">
 @import "~@/assets/scss/main.scss";
+.vue-notification-group{
+  top: 11% !important;
+}
+.my-style {
+  padding: 10px;
+  margin: 0 5px 5px;
+
+  font-size: 12px;
+
+  color: #ffffff;
+  background: #44a4fc;
+  border-left: 5px solid #187fe7;
+
+    &.success {
+    background: $primary;
+    border-left-color: darken($primary, 5%);;
+  }
+}
 </style>

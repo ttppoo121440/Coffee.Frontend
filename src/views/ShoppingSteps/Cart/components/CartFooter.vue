@@ -9,13 +9,25 @@
           <div class="my-5 d-flex">
             <h4 class="mr-auto">
               總數
-            </h4> <h5>{{ cartItemTotal }}</h5>
+            </h4> <h5>
+              <AnimatedNumber
+                :duration="500"
+                :format-value="formatToPrice"
+                :value="cartItemTotal"
+              />
+            </h5>
           </div>
           <div class="my-5 d-flex">
             <h4 class="mr-auto">
               總金額
             </h4>
-            <h5>${{ cartPriceTotal }}</h5>
+            <h5>
+              <AnimatedNumber
+                :duration="500"
+                :format-value="formatToPrice"
+                :value="cartPriceTotal"
+              />
+            </h5>
           </div>
         </div>
       </div>
@@ -31,6 +43,7 @@
           <button
             type="button"
             class="btn btn-big w-100"
+            @click="$emit('next')"
           >
             下一步
           </button>
@@ -42,9 +55,13 @@
 
 <script>
 import { mapGetters, mapActions } from 'vuex';
+import AnimatedNumber from 'animated-number-vue';
 
 export default {
   name: 'CartFooter',
+  components: {
+    AnimatedNumber,
+  },
   props: {
     cartList: {
       type: Array,
@@ -56,6 +73,9 @@ export default {
   },
   methods: {
     ...mapActions({ clearCart: 'Cart/clearCart' }),
+    formatToPrice(value) {
+      return `$ ${value.toFixed(0)}`;
+    },
   },
 };
 </script>

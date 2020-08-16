@@ -5,9 +5,11 @@
       :title="title"
     />
     <div class="container">
-      <h2 class="home-border-title">
-        {{ title }}
-      </h2>
+      <div class="p-3">
+        <h2 class="home-border-title">
+          {{ title }}
+        </h2>
+      </div>
       <div class="row mx-0 list">
         <div class="col-md-6 col-xl-4 col-lg-4">
           <div class="list-item">
@@ -85,8 +87,12 @@
           </div>
         </div>
       </div>
-      <div class="text-center pb-5">
-        <button class="btn btn-outline btn-big">
+      <div class="text-center pb-5 p-3">
+        <button
+          class="btn btn-outline btn-big"
+          type="button"
+          @click="$router.push('/products')"
+        >
           More
         </button>
       </div>
@@ -116,8 +122,9 @@ export default {
 @import "~@/assets/scss/mixins/_breakpoints.scss";
 
 .home-list-hot {
-   position: relative;
-   padding-bottom: 65px;
+  position: relative;
+  padding-bottom: 65px;
+
   &::after {
     content: "";
     position: absolute;
@@ -131,6 +138,11 @@ export default {
   }
   .list {
     margin: 175px 0 100px;
+
+    @include media-down(sm) {
+      margin: 0 0 100px;
+    }
+
     .col-xl-4 {
       padding: 0;
       &:not(:last-child) {
@@ -150,6 +162,11 @@ export default {
       .list-pic {
         padding: 20px;
       }
+      .list-btns .btn {
+        width: 100%;
+        padding: 10px 0;
+        margin: 10px 0;
+      }
     }
     &-pic {
       height: 320px;
@@ -164,6 +181,12 @@ export default {
       p {
         font-size: 18px;
       }
+    }
+  }
+  .btn {
+    @include media-down(sm) {
+      width: 100%;
+      padding: 10px 0;
     }
   }
 }

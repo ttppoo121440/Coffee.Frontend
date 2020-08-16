@@ -1,7 +1,8 @@
 import Vue from 'vue';
 import VueRouter from 'vue-router';
 import Home from '@/views/Home/index.vue';
-import Page from '@/views/Page';
+import Layout from '@/views/Layout';
+import ShoppingSteps from '@/views/ShoppingSteps';
 
 Vue.use(VueRouter);
 
@@ -13,7 +14,7 @@ const routes = [
   },
   {
     path: '',
-    component: Page,
+    component: Layout,
     children: [
       {
         path: '/products',
@@ -26,23 +27,28 @@ const routes = [
         component: () => import(/* webpackChunkName: "Product" */ '@/views/Products/Product'),
       },
       {
-        path: '/news',
-        name: 'News',
-        component: () => import(/* webpackChunkName: "News" */ '@/views/News'),
-      },
-      {
         path: '/about',
         name: 'About',
         component: () => import(/* webpackChunkName: "About" */ '@/views/About'),
       },
       {
+        path: '/success',
+        name: 'Success',
+        component: () => import(/* webpackChunkName: "Success" */ '@/views/Success'),
+      },
+      {
         path: '/cart',
-        name: 'Cart',
-        component: () => import(/* webpackChunkName: "Cart" */ '@/views/Cart'),
+        component: ShoppingSteps,
+        children: [
+          {
+            path: '',
+            name: 'Cart',
+            component: () => import(/* webpackChunkName: "Cart" */ '@/views/ShoppingSteps/Cart'),
+          },
+        ],
       },
     ],
   },
-
 ];
 
 const router = new VueRouter({

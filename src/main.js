@@ -3,8 +3,9 @@ import App from '@/App.vue';
 import router from '@/router';
 import store from '@/store';
 import '@/plugins/VueAwesome';
-import '@/plugins/RegisterModule';
 import '@/plugins/VueLoading';
+import '@/plugins/VueNotification';
+import '@/plugins/VeeValidate';
 
 Vue.config.productionTip = false;
 

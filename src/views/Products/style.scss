@@ -4,7 +4,6 @@
 
 .card {
   .col-xl-4 {
-    padding-right: 30px;
     &:not(:last-child) {
       @include media-down(lg) {
         padding: 15px;
@@ -35,6 +34,13 @@
     }
     p {
       font-size: 18px;
+    }
+  }
+  .btn{
+    @include media-down(sm) {
+      width: 100%;
+      padding: 15px 0;
+      margin: 15px 0;
     }
   }
 }

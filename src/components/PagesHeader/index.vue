@@ -90,7 +90,7 @@ ul.nav-social {
     display: none;
   }
   .list-item {
-    padding: 10px;
+    padding: 0 10px;
   }
   .fa-icon {
     color: $primary;

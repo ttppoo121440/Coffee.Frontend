@@ -41,10 +41,7 @@ export default {
 @import "~@/assets/scss/mixins/_breakpoints.scss";
 
 .footer {
-  position: absolute;
-  right: 0;
-  bottom: 0;
-  left: 0;
+
   .information {
     width: 50%;
     height: 100%;

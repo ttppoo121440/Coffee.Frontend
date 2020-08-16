@@ -1,9 +1,14 @@
 @import "~@/assets/scss/_functions.scss";
 @import "~@/assets/scss/_variables.scss";
+@import "~@/assets/scss/mixins/_breakpoints.scss";
 
 .product-details {
   &-pic {
     height: 500px;
+
+    @include media-down(sm) {
+      height: auto;
+    }
   }
 
   &-price {

@@ -39,8 +39,6 @@ main {
 body {
   position: relative;
   margin: 0; // 1
-  padding-bottom: 20rem;
-  min-height: 100%;
   font-family: $font-family-base;
   @include font-size($font-size-base);
   font-weight: $font-weight-base;
@@ -106,6 +104,20 @@ hr:not([size]) {
 h1 {
   @extend %heading;
   @include font-size($h1-font-size);
+  position: relative;
+  display: inline-block;
+}
+
+.title{
+  &::before {
+    content:"";
+    position: absolute;
+    width: 90%;
+    bottom: -20px;
+    left: 5%;
+    border-bottom: 3px solid $black;
+    display: inline-block;
+  }
 }
 
 h2 {

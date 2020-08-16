@@ -2,13 +2,13 @@
   <div class="container">
     <ul class="step">
       <li
-        v-for="(step, index) in 3"
-        :key="step"
+        v-for="(item, index) in 3"
+        :key="item"
         class="step-item"
-        :class="{ active: active === index }"
+        :class="{ active: bindingStep === index }"
       >
         <div class="round">
-          {{ step }}
+          {{ item }}
         </div>
       </li>
     </ul>
@@ -19,9 +19,16 @@
 export default {
   name: 'Step',
   props: {
-    active: {
+    step: {
       type: Number,
       required: true,
+    },
+  },
+  computed: {
+    bindingStep: {
+      get() {
+        return this.step;
+      },
     },
   },
 };

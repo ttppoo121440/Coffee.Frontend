@@ -5,15 +5,17 @@
       :title="title"
     />
     <div class="container">
-      <h2 class="home-border-title">
-        {{ title }}
-      </h2>
+      <div class="p-3">
+        <h2 class="home-border-title">
+          {{ title }}
+        </h2>
+      </div>
       <div class="row mx-0 list">
         <div class="col-md-6 col-xl-4 col-lg-4">
           <div class="list-item">
             <div class="list-pic mb-2">
               <img
-                src="https://truth.bahamut.com.tw/s01/202007/11ea100d6b4a469057da8685c22d05a1.JPG?w=1000"
+                src="~@/assets/images/pexels-photo-4457107.png"
                 alt="list1"
                 class="w-100 h-100"
               >
@@ -45,11 +47,6 @@
             <span class="text-primary">2020/06/25</span>
           </div>
         </div>
-      </div>
-      <div class="text-center pb-5">
-        <button class="btn btn-outline btn-big">
-          More
-        </button>
       </div>
     </div>
   </section>
@@ -92,16 +89,18 @@ export default {
   }
   .list {
     margin: 175px 0 100px;
+
+    @include media-down(sm) {
+      margin: 0;
+    }
+
     .col-xl-4 {
-      padding: 0;
-      &:not(:last-child) {
-        padding-right: 30px;
-        @include media-down(lg) {
-          padding: 15px;
+      padding: 15px ;
+
+      &:not(:first-child) {
+        @include media-down(sm) {
+          display: none;
         }
-      }
-      @include media-down(lg) {
-        padding: 15px;
       }
     }
     &-item {
@@ -121,5 +120,4 @@ export default {
   font-size: 54px;
   z-index: 100;
 }
-
 </style>

@@ -3,7 +3,7 @@ import Vuex from 'vuex';
 import Pagination from './Modules/Pagination';
 import Loading from './Modules/Loading';
 import Cart from './Modules/Cart';
-import Notification from './Modules/Notification';
+import Product from './Modules/Product';
 
 Vue.use(Vuex);
 
@@ -12,6 +12,6 @@ export default new Vuex.Store({
     Pagination,
     Loading,
     Cart,
-    Notification,
+    Product,
   },
 });

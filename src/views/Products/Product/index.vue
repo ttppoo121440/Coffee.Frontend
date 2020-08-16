@@ -1,8 +1,7 @@
 <template>
-  <section class="container product-details mt-200">
+  <section class="container product-details mt-200 mb-100">
     <Loading :active.sync="$store.state.Loading.loading" />
     <transition-group
-      v-if="!$store.state.Loading.loading"
       name="page"
       appear
       tag="div"
@@ -14,7 +13,7 @@
       >
         <div class="product-details-pic">
           <img
-            :src="$store.state.Product.product.imageUrl"
+            :src="product.imageUrl"
             alt=""
             class="w-100 h-100"
           >
@@ -22,18 +21,16 @@
       </div>
       <ProductDetails
         :key="$route.fullPath"
-        :data="$store.state.Product.product"
+        :data="product"
         :quantity.sync="quantity"
         :cart="cart"
         @addCart="addCartHandler"
-        @calculation="calculation"
       />
     </transition-group>
   </section>
 </template>
 
 <script>
-import Product from '@/storeModule/Product';
 import ProductDetails from '../components/ProductDetails';
 
 export default {
@@ -47,22 +44,20 @@ export default {
       cart: [],
     };
   },
+  computed: {
+    product() {
+      return this.$store.state.Product === undefined ? {}
+        : this.$store.state.Product.product;
+    },
+  },
   async mounted() {
-    this.$registerModule(this.$store, { Product });
     await this.$store.dispatch(
       'Product/getSingleProducts',
       this.$route.params.id,
     );
     this.getCartId();
   },
-  beforeDestroy() {
-    this.$unregisterModule(this.$store, ['Product']);
-  },
   methods: {
-    async calculation(data) {
-      const qty = await this.$store.dispatch('Cart/productCalculation', data);
-      this.quantity = qty;
-    },
     addCart(product) {
       this.quantity = 2;
       this.$store.dispatch('Cart/addProductCart', {
@@ -86,6 +81,12 @@ export default {
       } else {
         this.editCart(product);
       }
+      this.$notify({
+        group: 'foo',
+        type: 'success',
+        title: '提示',
+        text: '加入購物車成功!',
+      });
     },
     getCartId() {
       const list = this.$store.state.Cart.goodsList.find(

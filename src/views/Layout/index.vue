@@ -11,14 +11,10 @@ import Footer from '@/components/Footer';
 import PagesHeader from '@/components/PagesHeader';
 
 export default {
-  name: 'Page',
+  name: 'Layout',
   components: {
     PagesHeader,
     Footer,
   },
 };
 </script>
-
-<style>
-
-</style>

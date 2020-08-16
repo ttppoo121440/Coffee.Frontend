@@ -1,0 +1,145 @@
+@import "~@/assets/scss/_functions.scss";
+@import "~@/assets/scss/_variables.scss";
+@import "~@/assets/scss/mixins/_breakpoints.scss";
+
+.time-horizontal {
+  list-style-type: none;
+  border-top: 1px solid $theme;
+  width: 100%;
+  padding: 0px;
+  margin: 300px 0 0;
+  display: flex;
+  li {
+    position: relative;
+    text-align: center;
+    width: 33.3333%;
+    padding-top: 10px;
+    color: $primary;
+
+    @include media-down(sm) {
+      width: 100%;
+    }
+
+    &:nth-of-type(1),&:nth-of-type(3){
+      @include media-down(sm) {
+        display: none;
+      }
+    }
+
+    &:nth-of-type(1) .year,&:nth-of-type(3) .year{
+      position: relative;
+      top: -200px;
+      left: -10px;
+      font-size: 120px;
+      opacity: 0.6;
+      @include media-down(sm) {
+        display: none;
+      }
+    }
+    &:nth-of-type(2) .year {
+      position: relative;
+      top: -250px;
+      left: -10px;
+      font-size: 120px;
+      @include media-down(sm) {
+        font-size: 60px;
+        top: -200px;
+        left: 0;
+      }
+    }
+
+    b:before {
+      content: "";
+      position: absolute;
+      top: -15px;
+      left: 47%;
+      width: 30px;
+      height: 30px;
+      border: 2px solid $primary;
+      border-radius: 50%;
+      background: $primary;
+
+      @include media-down(sm) {
+        left: 50%;
+        transform: translateX(-50%);
+      }
+    }
+  }
+}
+
+.time-content{
+  display: flex;
+  font-size: 24px;
+  color: $primary;
+  padding: 15px;
+  justify-content: center;
+  position: relative;
+  top: -100px;
+  p{
+    width: 370px;
+    
+    @include media-down(sm) {
+      margin-top: 100px;
+      font-size: 18px;
+    }
+  }
+}
+
+.about {
+
+  &-pic{
+    left: 41.5%;
+    background-image: url('https://cdn.stocksnap.io/img-thumbs/960w/barista-pouring_MD4L58LL1E.jpg');
+    filter:none;
+    @include media-down(md) {
+      left: 0;
+      filter: brightness(50%);
+    }
+  }
+  &-content {
+    position: relative;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    font-size: 24px;
+    color: $primary;
+
+    @include media-down(md) {
+      color: $white;
+    }
+
+    &::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      background: $primary;
+      opacity: 0.1;
+      height: 100%;
+      width: 100%;
+      padding: 0 20px 0 50px;
+    }
+    p {
+      padding-left: 100px;
+      padding-right: 30px;
+      @include media-down(md) {
+        padding-left: 0;
+        padding-right: 0;
+        padding: 30px;
+        font-size: 20px;
+      }
+    }
+
+    span {
+      font-size: 64px;
+      transform: rotate(90deg);
+      position: absolute;
+      top: -48px;
+      left: -25px;
+      font-weight: 700;
+      color: $primary;
+      opacity: 0.6;
+    }
+  }
+}
