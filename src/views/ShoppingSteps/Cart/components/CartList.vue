@@ -96,7 +96,9 @@ export default {
       changeValue: 'Cart/changeValue',
     }),
     formatToPrice(value) {
-      return `$ ${value.toFixed(0)}`;
+      const str = value.toString();
+      const reg = str.indexOf('.') > -1 ? /(\d)(?=(\d{3})+\.)/g : /(\d)(?=(?:\d{3})+$)/g;
+      return `$ ${value.toFixed(0).replace(reg, '$1,')}`;
     },
   },
 };

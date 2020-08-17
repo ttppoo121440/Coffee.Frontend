@@ -12,7 +12,7 @@
             </h4> <h5>
               <AnimatedNumber
                 :duration="500"
-                :format-value="formatToPrice"
+                :format-value="formatToNumber"
                 :value="cartItemTotal"
               />
             </h5>
@@ -74,7 +74,12 @@ export default {
   methods: {
     ...mapActions({ clearCart: 'Cart/clearCart' }),
     formatToPrice(value) {
-      return `$ ${value.toFixed(0)}`;
+      const str = value.toString();
+      const reg = str.indexOf('.') > -1 ? /(\d)(?=(\d{3})+\.)/g : /(\d)(?=(?:\d{3})+$)/g;
+      return `$ ${value.toFixed(0).replace(reg, '$1,')}`;
+    },
+    formatToNumber(value) {
+      return `${value.toFixed(0)}`;
     },
   },
 };

@@ -21,7 +21,7 @@
     </div>
     <div class="btn-group">
       <div class="row m-0 w-100">
-        <div class="col-md-6 pl-0">
+        <div class="col-md-6">
           <button
             type="button"
             class="btn btn-outline  w-100 mb-5"
@@ -30,7 +30,7 @@
             上一步
           </button>
         </div>
-        <div class="col-md-6 pr-0">
+        <div class="col-md-6">
           <button
             type="button"
             class="btn  w-100"
@@ -85,6 +85,7 @@ export default {
 <style lang="scss">
 @import "~@/assets/scss/_functions.scss";
 @import "~@/assets/scss/_variables.scss";
+@import "~@/assets/scss/mixins/_breakpoints.scss";
 
 .form-item {
   margin: 30px 0;
@@ -104,6 +105,25 @@ export default {
     border: 1px solid $primary;
     &:disabled {
       background-color: #cecece;
+    }
+  }
+}
+
+.btn-group {
+  .col-md-6 {
+    padding: 0;
+
+    &:nth-of-type(1) {
+      padding-right: 10px;
+      @include media-down(sm) {
+        padding-right: 0;
+      }
+    }
+    &:nth-of-type(2) {
+      padding-left: 10px;
+       @include media-down(sm) {
+        padding-left: 0;
+      }
     }
   }
 }

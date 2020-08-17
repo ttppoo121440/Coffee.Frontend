@@ -2,7 +2,7 @@ export default {
   namespaced: true,
   state: {
     current: 1,
-    paged: 9,
+    paged: 100,
     total: 0,
     total_pages: 0,
   },
