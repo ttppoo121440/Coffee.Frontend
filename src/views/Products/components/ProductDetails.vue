@@ -1,7 +1,11 @@
 <template>
   <div class="col-md-6">
     <div class="product-details-content">
-      <span class="py-3 text-primary">產品專區/{{ data.category }}</span>
+      <span class="py-3 text-primary"><router-link
+        class="text-primary"
+        to="/products"
+      >
+        產品專區</router-link>/{{ data.category }}</span>
       <div class="text-left my-5">
         <h1>
           {{ data.title }}
@@ -21,7 +25,7 @@
       </div>
       <div class="product-details-cart text-left mt-5">
         <button
-          class="btn mr-2"
+          class="btn"
           :class="{disabled:quantity===999}"
           @click="$emit('addCart', data,bindingValue)"
         >

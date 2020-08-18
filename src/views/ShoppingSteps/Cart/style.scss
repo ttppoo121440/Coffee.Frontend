@@ -13,8 +13,12 @@
   @include media-down(lg) {
     padding: 0 0 50px 0;
   }
+ 
 
   .btn{
+    @include media-down(md) {
+      padding: 30px;
+    }
     @include media-down(sm) {
       padding: 30px;
     }

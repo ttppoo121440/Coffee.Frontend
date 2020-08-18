@@ -8,11 +8,17 @@
           產品專區
         </h1>
       </div>
-      <Category
-        :categorys="product.category"
-        class="justify-content-center"
-        @categoryHandler="categoryHandler"
-      />
+      <div class="container text-center py-5">
+        <div class="row justify-content-center">
+          <div class="col-md-8 col-lg-8">
+            <Carousel
+              v-if="product.category.length !== 0"
+              :categorys="product.category"
+              @categoryHandler="categoryHandler"
+            />
+          </div>
+        </div>
+      </div>
       <ProductsList
         class="mb-5"
         :data="filterProduct"
@@ -23,7 +29,7 @@
 
 <script>
 import Banner from '@/components/PagesHeader/Banner';
-import Category from '@/components/Category';
+import Carousel from '@/components/Carousel';
 import ProductsList from './components/ProductsList';
 
 export default {
@@ -31,7 +37,7 @@ export default {
   components: {
     ProductsList,
     Banner,
-    Category,
+    Carousel,
   },
   data() {
     return {
@@ -54,6 +60,7 @@ export default {
     },
   },
   mounted() {
+    this.$store.commit('Product/CLEAR_DATA');
     this.$store.commit('Pagination/SET_CURRENT', 1);
     this.$store.dispatch('Product/getProduct');
   },

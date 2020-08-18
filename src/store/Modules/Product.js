@@ -52,5 +52,10 @@ export default {
     SET_CATEGORY(state, status) {
       state.category = Object.freeze(status);
     },
+    CLEAR_DATA(state) {
+      state.productList = [];
+      state.product = {};
+      state.category = [];
+    },
   },
 };

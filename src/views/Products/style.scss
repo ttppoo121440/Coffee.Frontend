@@ -24,6 +24,15 @@
   }
   &-pic {
     height: 320px;
+    @include media-down(lg) {
+      height: 420px;
+    }
+    @include media-down(md) {
+      height: 320px;
+    }
+    @include media-down(sm) {
+      height: 250px;
+    }
   }
   &-content {
     padding: 0 20px 20px 20px;

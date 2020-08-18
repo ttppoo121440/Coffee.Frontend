@@ -4,8 +4,6 @@
 
 .product-details {
   &-pic {
-    height: 500px;
-
     @include media-down(sm) {
       height: auto;
     }

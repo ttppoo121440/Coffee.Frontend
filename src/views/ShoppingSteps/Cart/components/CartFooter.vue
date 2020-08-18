@@ -29,6 +29,15 @@
               />
             </h5>
           </div>
+          <div class="mt-5">
+            <button
+              type="button"
+              class="btn btn-outline w-100"
+              @click="clearCart"
+            >
+              清空購物車
+            </button>
+          </div>
         </div>
       </div>
       <div class="col-md-6">

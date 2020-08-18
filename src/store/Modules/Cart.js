@@ -140,7 +140,7 @@ export default {
       return state.goodsList;
     },
     getQty: (state) => (data) => state.goodsList.find((item, index) => {
-      let qty = {};
+      let qty = 0;
       if (item.product.id === data.product.id) {
         const product = item;
         product.quantity = data.quantity;

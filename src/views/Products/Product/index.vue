@@ -9,12 +9,11 @@
     >
       <div
         :key="$route.name"
-        class="col-md-6"
+        class="col-md-6 my-auto"
       >
         <div class="product-details-pic">
           <img
             :src="product.imageUrl"
-            alt=""
             class="w-100 h-100"
           >
         </div>
