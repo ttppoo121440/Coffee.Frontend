@@ -30,6 +30,30 @@ export default {
       commit('SET_CATEGORY', Array.from(category));
       return result;
     },
+    async getHotProduct({ commit, rootState }) {
+      commit('Loading/LOADING', true, {
+        root: true,
+      });
+      const result = await getProduct(`page=${rootState.Pagination.current}&paged=${rootState.Pagination.paged}`);
+      commit('Pagination/SET_TOTAL', result.meta.pagination.total, {
+        root: true,
+      });
+      commit('Pagination/SET_TOTAL_PAGES', result.meta.pagination.total_pages, {
+        root: true,
+      });
+      const temp = [];
+      result.data.map((item) => {
+        if (item.category === '熱門') {
+          temp.push(item);
+        }
+        return temp;
+      });
+      commit('SET_DATA', temp);
+      commit('Loading/LOADING', false, {
+        root: true,
+      });
+      return result;
+    },
     async getSingleProducts({ commit }, id) {
       commit('Loading/LOADING', true, {
         root: true,

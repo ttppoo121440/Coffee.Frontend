@@ -1,80 +1,118 @@
 <template>
-  <div class="carousel">
-    <CarouselSide />
-    <div class="banner" />
-    <span class="banner-text">歡迎光臨</span><br>
-    <span class="banner-text">喵喵咖啡館</span>
-    <BannerBottom />
-  </div>
+  <VueSlickCarousel
+    v-bind="settings"
+    class="w-100"
+  >
+    <div
+      v-for="product in data"
+      :key="product.id"
+      class="p-3"
+    >
+      <div class="list-item">
+        <div class="list-pic mb-2">
+          <img
+            :src="product.imageUrl"
+            alt="list1"
+            class="w-100 h-100"
+            draggable="false"
+          >
+        </div>
+        <div class="list-content">
+          <h3>
+            {{ product.title }}
+          </h3>
+          <p>售價：{{ product.price }}</p>
+          <div class="list-btns">
+            <button
+              class="btn btn-outline btn-sm mr-2"
+              @click="goProductPage(product.id)"
+            >
+              觀看更多
+            </button>
+            <button
+              class="btn btn-sm btn-sm"
+              @click="addCart(product)"
+            >
+              加到購物車
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </VueSlickCarousel>
 </template>
 
 <script>
-import BannerBottom from './BannerBottom';
-import CarouselSide from './CarouselSide';
+import VueSlickCarousel from 'vue-slick-carousel';
+import 'vue-slick-carousel/dist/vue-slick-carousel.css';
+import 'vue-slick-carousel/dist/vue-slick-carousel-theme.css';
+import { mapActions } from 'vuex';
 
 export default {
-  name: 'Carousel',
-  components: {
-    BannerBottom,
-    CarouselSide,
+  name: 'CarouselHome',
+  components: { VueSlickCarousel },
+  props: {
+    data: {
+      type: Array,
+      required: true,
+    },
+  },
+  data() {
+    return {
+      settings: {
+        speed: 500,
+        slidesToShow: 3,
+        slidesToScroll: 1,
+        swipeToSlide: true,
+        infinite: false,
+        arrows: true,
+        responsive: [
+          {
+            breakpoint: 1024,
+            settings: {
+              slidesToShow: 2,
+            },
+          },
+          {
+            breakpoint: 767,
+            settings: {
+              slidesToShow: 1,
+            },
+          },
+        ],
+      },
+    };
+  },
+  methods: {
+    ...mapActions({ addCart: 'Cart/addCart' }),
+    goProductPage(id) {
+      this.$router.push(`/Product/${id}`);
+    },
   },
 };
 </script>
 
-<style lang="scss">
+<style lang="scss" scorpd>
 @import "~@/assets/scss/_functions.scss";
 @import "~@/assets/scss/_variables.scss";
 @import "~@/assets/scss/mixins/_breakpoints.scss";
 
-.carousel {
-  position: relative;
-  height: 78vh;
-
- @include media-down(lg) {
-    height: 90vh;
-  }
-  @include media-down(md) {
-    height: 90vh;
-  }
+div:focus {
+  outline: none;
+}
+.slick-prev:before,
+.slick-next:before {
+  color: $primary;
+}
+.slick-prev{
   @include media-down(sm) {
-    height: 100vh;
-  }
-  @at-root .banner {
-    z-index: -1;
-    position: absolute;
-    background: url("~@/assets/images/banner.png") no-repeat center center;
-    background-size: cover;
-    top: -200px;
-    bottom: 100px;
-    right: 0;
-    left: 170px;
-
-    @include media-down(lg) {
-      left: 100px;
-    }
-
-    @include media-down(sm) {
-      bottom: 0px;
-      left: 50px;
-    }
-
-    &-text {
-      position: absolute;
-      color: $white;
-      font-size: 80px;
-      @include media-down(sm) {
-        display: none;
-      }
-
-      &:nth-of-type(1) {
-        top: 32%;
-        left: 21%;
-      }
-      &:nth-of-type(2) {
-        top: 45%;
-        left: 21%;
-      }
-    }
+    left: -10px;
   }
 }
+.slick-next{
+  @include media-down(sm) {
+    right: -10px;
+  }
+}
+
 </style>

@@ -49,11 +49,25 @@ export default {
       active: '全部',
       settings: {
         speed: 500,
-        slidesToShow: 3,
+        slidesToShow: 4,
         slidesToScroll: 1,
         swipeToSlide: true,
         infinite: false,
         arrows: true,
+        responsive: [
+          {
+            breakpoint: 1200,
+            settings: {
+              slidesToShow: 4,
+            },
+          },
+          {
+            breakpoint: 767,
+            settings: {
+              slidesToShow: 3,
+            },
+          },
+        ],
       },
     };
   },
@@ -66,7 +80,7 @@ export default {
 };
 </script>
 
-<style lang="scss">
+<style lang="scss" >
 @import "~@/assets/scss/_functions.scss";
 @import "~@/assets/scss/_variables.scss";
 @import "~@/assets/scss/mixins/_breakpoints.scss";
@@ -78,7 +92,12 @@ div:focus {
 .slick-next:before {
   color: $primary;
 }
-
+.slick-prev{
+  left: -25px;
+}
+.slick-next{
+  right: -25px;
+}
 .carousel-item {
   .btn {
     @include media-down(sm) {

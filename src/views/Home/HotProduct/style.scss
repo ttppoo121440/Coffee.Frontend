@@ -1,0 +1,76 @@
+@import "~@/assets/scss/_functions.scss";
+@import "~@/assets/scss/_variables.scss";
+@import "~@/assets/scss/mixins/_breakpoints.scss";
+
+.home-list-hot {
+  position: relative;
+  padding-bottom: 65px;
+
+  &::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 50%;
+    bottom: 0;
+    background: $primary;
+    opacity: 0.1;
+    z-index: -1;
+  }
+  .list {
+    margin: 175px 0 100px;
+
+    @include media-down(sm) {
+      margin: 0 0 100px;
+    }
+
+    .col-xl-4 {
+      padding: 0;
+      &:not(:last-child) {
+        padding-right: 30px;
+        @include media-down(lg) {
+          padding: 15px;
+        }
+      }
+      @include media-down(lg) {
+        padding: 15px;
+      }
+    }
+    &-item {
+      width: 100%;
+      background: $white;
+      box-shadow: 1px 2px 5px 2px rgba(0, 0, 0, 0.15);
+      .list-pic {
+        padding: 20px;
+      }
+      .list-btns .btn {
+        width: 100%;
+        padding: 10px 0;
+        margin: 10px 0;
+      }
+    }
+    &-pic {
+      height: 320px;
+      @include media-down(sm) {
+        height: 300px;
+      }
+    }
+    &-content {
+      padding: 0 20px 20px 20px;
+      color: $primary;
+      font-weight: 700;
+      h3 {
+        font-size: 24px;
+      }
+      p {
+        font-size: 18px;
+      }
+    }
+  }
+  .btn {
+    @include media-down(sm) {
+      width: 100%;
+      padding: 10px 0;
+    }
+  }
+}

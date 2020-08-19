@@ -96,7 +96,6 @@ export default {
   },
   mounted() {
     this.cartList = this.getCart;
-    this.$store.dispatch('Cart/cartList');
   },
   methods: {
     async next() {

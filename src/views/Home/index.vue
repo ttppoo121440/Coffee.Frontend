@@ -1,11 +1,12 @@
 <template>
   <div class="container-fluid p-0">
+    <Loading :active.sync="$store.state.Loading.loading" />
     <Header />
-    <Carousel />
+    <BannerBlock />
     <About />
     <Navbar />
     <LatestNews />
-    <HotProduct />
+    <HotProduct v-if="this.$store.state.Product.productList.length !== 0" />
     <Footer />
   </div>
 </template>
@@ -14,21 +15,26 @@
 import Footer from '@/components/Footer';
 import Navbar from './components/Navbar';
 import Header from './components/Header';
-import Carousel from './components/Carousel';
-import About from './components/Section/About';
-import LatestNews from './components/Section/LatestNews';
-import HotProduct from './components/Section/HotProduct';
+import BannerBlock from './components/BannerBlock';
+import About from './About';
+import LatestNews from './LatestNews';
+import HotProduct from './HotProduct';
 
 export default {
   name: 'Home',
   components: {
     Header,
-    Carousel,
+    BannerBlock,
     About,
     LatestNews,
     HotProduct,
     Navbar,
     Footer,
+  },
+  mounted() {
+    this.$store.commit('Product/CLEAR_DATA');
+    this.$store.commit('Pagination/SET_CURRENT', 1);
+    this.$store.dispatch('Product/getHotProduct');
   },
 };
 </script>

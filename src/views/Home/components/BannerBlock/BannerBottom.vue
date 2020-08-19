@@ -10,9 +10,7 @@
       class="banner-bottom-more"
       @click.prevent="gotoAbout"
     >
-      <div
-        class="pl-xl-5 pl-lg-0 banner-bottom-more-click"
-      >
+      <div class="pl-xl-5 pl-lg-0 banner-bottom-more-click">
         <a
           href="#"
           class="text-white mr-5"
@@ -34,10 +32,13 @@ export default {
       const anchor = document.querySelector('#more');
       this.scrollTo(anchor.offsetHeight);
     },
-    scrollTo(position) {
+    requestAnimationFrame() {
       if (!window.requestAnimationFrame) {
         window.requestAnimationFrame = (callback) => setTimeout(callback, 17);
       }
+    },
+    scrollTo(position) {
+      this.requestAnimationFrame();
       let scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
       const step = () => {
         const distance = position - scrollTop;
@@ -141,7 +142,6 @@ export default {
       margin-left: 50px;
     }
     &-click {
-
       @include media-down(lg) {
         margin: 0 auto;
       }

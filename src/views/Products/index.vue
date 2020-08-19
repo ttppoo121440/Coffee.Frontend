@@ -9,15 +9,11 @@
         </h1>
       </div>
       <div class="container text-center py-5">
-        <div class="row justify-content-center">
-          <div class="col-md-8 col-lg-8">
-            <Carousel
-              v-if="product.category.length !== 0"
-              :categorys="product.category"
-              @categoryHandler="categoryHandler"
-            />
-          </div>
-        </div>
+        <Carousel
+          v-if="product.category.length !== 0"
+          :categorys="product.category"
+          @categoryHandler="categoryHandler"
+        />
       </div>
       <ProductsList
         class="mb-5"
