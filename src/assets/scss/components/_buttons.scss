@@ -12,6 +12,7 @@
     color: $primary;
 
     &:hover{
+      border: 2px solid $primary !important;
       background: $primary !important;
       color: $white !important;
     }

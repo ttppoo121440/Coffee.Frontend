@@ -6,8 +6,8 @@
     <div class="carousel-item">
       <button
         type="button"
-        class="btn"
-        :class="{ 'btn-outline': active !== '全部' }"
+        class="btn btn-outline"
+        :class="{ active: active === '全部' }"
         @click="categoryHandler('全部')"
       >
         全部
@@ -20,8 +20,8 @@
     >
       <button
         type="button"
-        class="btn"
-        :class="{ 'btn-outline': active !== category }"
+        class="btn btn-outline"
+        :class="{ active: active === category }"
         @click="categoryHandler(category)"
       >
         {{ category }}
@@ -100,6 +100,13 @@ div:focus {
 }
 .carousel-item {
   .btn {
+    color: #E1E1E1;
+    border: 2px solid #E1E1E1;
+
+    &.active{
+      color: $primary;
+      border: 2px solid $primary;
+    }
     @include media-down(sm) {
       font-size: 16px;
       font-weight: normal;
