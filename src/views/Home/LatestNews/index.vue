@@ -6,7 +6,7 @@
     />
     <div class="container">
       <div class="p-3">
-        <h2 class="home-border-title">
+        <h2 class="border-title">
           {{ title }}
         </h2>
       </div>

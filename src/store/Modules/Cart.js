@@ -1,6 +1,6 @@
 import vue from 'vue';
 import {
-  createCart, deleteCart, cartList, createOrder,
+  createCart, deleteCart, createOrder,
 } from '@/utils/api';
 
 export default {
@@ -18,16 +18,6 @@ export default {
         root: true,
       });
       dispatch('deleteCart');
-      return result;
-    },
-    async cartList({ commit }) {
-      commit('Loading/LOADING', true, {
-        root: true,
-      });
-      const result = await cartList();
-      commit('Loading/LOADING', false, {
-        root: true,
-      });
       return result;
     },
     async createCart({ commit }, data) {
@@ -48,10 +38,98 @@ export default {
       dispatch('clearCart');
       return result;
     },
-    addCart({ state }, product) {
-      const list = state.goodsList.find((item) => item.product.id === product.id);
+    addCart({ commit }, product) {
+      commit('ADD_CART', product);
+    },
+    addProductCart({ commit }, data) {
+      commit('PUSH_CART', data);
+    },
+    editCart({ commit }, { product, quantity }) {
+      commit('EDIT_CART', { product, quantity });
+    },
+    cartDelete({ commit }, id) {
+      commit('DELETE_CART', id);
+    },
+    calculation({ commit }, data) {
+      commit('CALCULATION', data);
+    },
+    productCalculation({ state, dispatch }, data) {
+      const list = state.goodsList.find((item) => item.product.id === data.product.id);
       if (!list) {
-        state.goodsList.push({ product, quantity: 1 });
+        dispatch('addProductCart', data);
+      }
+    },
+    changeValue({ commit }, data) {
+      commit('CHANGE_VALUE', data);
+    },
+    clearCart({ commit }) {
+      commit('CLEAR_CART', []);
+      localStorage.removeItem('goodsList');
+    },
+  },
+  mutations: {
+    CHANGE_VALUE(state, status) {
+      state.goodsList.forEach((item, index) => {
+        if (item.product.id === status.product.id) {
+          const product = item;
+          product.quantity = status.quantity;
+          state.goodsList.splice(index, 1, item);
+        }
+      });
+      localStorage.setItem('goodsList', JSON.stringify(state.goodsList));
+    },
+    CALCULATION(state, status) {
+      state.goodsList.forEach((item, index) => {
+        if (item.product.id === status.product.id) {
+          const product = item;
+          product.quantity = status.quantity;
+          state.goodsList.splice(index, 1, item);
+        }
+      });
+      localStorage.setItem('goodsList', JSON.stringify(state.goodsList));
+    },
+    CLEAR_CART(state, status) {
+      state.goodsList = status;
+    },
+    PUSH_CART(state, status) {
+      state.goodsList.push({
+        product: {
+          id: status.product.id,
+          title: status.product.title,
+          category: status.product.category,
+          content: status.product.content,
+          enabled: status.product.enabled,
+          imageUrl: status.product.imageUrl,
+          origin_price: status.product.origin_price,
+          price: status.product.price,
+          unit: status.product.unit,
+        },
+        quantity: status.quantity,
+      });
+      localStorage.setItem('goodsList', JSON.stringify(state.goodsList));
+    },
+    DELETE_CART(state, status) {
+      state.goodsList.forEach((item, index) => {
+        if (item.product.id === status) {
+          state.goodsList.splice(index, 1);
+        }
+      });
+      localStorage.setItem('goodsList', JSON.stringify(state.goodsList));
+    },
+    EDIT_CART(state, status) {
+      state.goodsList.forEach((item, index) => {
+        if (item.product.id === status.id) {
+          const tempProduct = item;
+          tempProduct.quantity = status;
+          state.goodsList.splice(index, 1, tempProduct);
+        }
+      });
+      localStorage.setItem('goodsList', JSON.stringify(state.goodsList));
+    },
+    ADD_CART(state, status) {
+      const list = state.goodsList.find((item) => item.product.id === status.id);
+      if (!list) {
+        state.goodsList.push({ product: status, quantity: 1 });
       } else {
         list.quantity += 1;
       }
@@ -63,76 +141,21 @@ export default {
         text: '加入購物車成功!',
       });
     },
-    addProductCart({ state }, data) {
-      state.goodsList.push({
-        product: {
-          id: data.product.id,
-          title: data.product.title,
-          category: data.product.category,
-          content: data.product.content,
-          enabled: data.product.enabled,
-          imageUrl: data.product.imageUrl,
-          origin_price: data.product.origin_price,
-          price: data.product.price,
-          unit: data.product.unit,
-        },
-        quantity: data.quantity,
-      });
-      localStorage.setItem('goodsList', JSON.stringify(state.goodsList));
-    },
-    editCart({ state }, { product, quantity }) {
-      state.goodsList.forEach((item, index) => {
-        if (item.product.id === product.id) {
-          const tempProduct = item;
-          tempProduct.quantity = quantity;
-          state.goodsList.splice(index, 1, tempProduct);
-        }
-      });
-      localStorage.setItem('goodsList', JSON.stringify(state.goodsList));
-    },
-    cartDelete({ state }, id) {
-      state.goodsList.forEach((item, index) => {
-        if (item.product.id === id) {
-          state.goodsList.splice(index, 1);
-        }
-      });
-      localStorage.setItem('goodsList', JSON.stringify(state.goodsList));
-    },
-    calculation({ state }, data) {
-      state.goodsList.forEach((item, index) => {
-        if (item.product.id === data.product.id) {
+    GET_QTY(state, status) {
+      let qty = 0;
+      state.goodsList.find((item, index) => {
+        if (item.product.id === status.product.id) {
           const product = item;
-          product.quantity = data.quantity;
+          product.quantity = status.quantity;
           state.goodsList.splice(index, 1, item);
+          localStorage.setItem('goodsList', JSON.stringify(state.goodsList));
+          qty = status.quantity;
         }
+        return qty;
       });
-      localStorage.setItem('goodsList', JSON.stringify(state.goodsList));
     },
-    productCalculation({ state, dispatch, getters }, data) {
-      const list = state.goodsList.find((item) => item.product.id === data.product.id);
-      if (!list) {
-        dispatch('addProductCart', data);
-      }
-      return getters.getQty(data) === undefined ? 2 : getters.getQty(data).quantity;
-    },
-    changeValue({ state }, data) {
-      state.goodsList.forEach((item, index) => {
-        if (item.product.id === data.product.id) {
-          const product = item;
-          product.quantity = data.quantity;
-          state.goodsList.splice(index, 1, item);
-        }
-      });
-      localStorage.setItem('goodsList', JSON.stringify(state.goodsList));
-    },
-    clearCart({ commit }) {
-      commit('CLEAR_CART', []);
-      localStorage.removeItem('goodsList');
-    },
-  },
-  mutations: {
-    CLEAR_CART(state, status) {
-      state.goodsList = status;
+    ADD_QTY(state) {
+      state.goodsList.quantity += 1;
     },
   },
   getters: {

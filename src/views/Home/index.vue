@@ -6,7 +6,7 @@
     <About />
     <Navbar />
     <LatestNews />
-    <HotProduct v-if="this.$store.state.Product.productList.length !== 0" />
+    <HotProduct v-if="this.$store.state.Product.hotProduct.length !== 0" />
     <Footer />
   </div>
 </template>

@@ -4,9 +4,7 @@
 
 .product-details {
   &-pic {
-    @include media-down(sm) {
-      height: auto;
-    }
+    text-align: center;
   }
 
   &-price {

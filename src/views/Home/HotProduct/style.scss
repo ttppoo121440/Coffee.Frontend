@@ -2,7 +2,7 @@
 @import "~@/assets/scss/_variables.scss";
 @import "~@/assets/scss/mixins/_breakpoints.scss";
 
-.home-list-hot {
+.list-hot {
   position: relative;
   padding-bottom: 65px;
 
@@ -50,10 +50,8 @@
       }
     }
     &-pic {
-      height: 320px;
-      @include media-down(sm) {
-        height: 300px;
-      }
+      display: flex;
+      justify-content: center;
     }
     &-content {
       padding: 0 20px 20px 20px;

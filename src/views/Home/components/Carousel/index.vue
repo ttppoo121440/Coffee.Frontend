@@ -13,7 +13,7 @@
           <img
             :src="product.imageUrl"
             alt="list1"
-            class="w-100 h-100"
+            class="img-fluid"
             draggable="false"
           >
         </div>
@@ -86,7 +86,7 @@ export default {
   methods: {
     ...mapActions({ addCart: 'Cart/addCart' }),
     goProductPage(id) {
-      this.$router.push(`/Product/${id}`);
+      this.$router.push(`/Product/${id}`).catch(() => {});
     },
   },
 };

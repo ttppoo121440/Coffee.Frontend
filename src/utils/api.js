@@ -10,9 +10,15 @@ export const getProduct = (data) => get(`api/${uuid}/ec/products?${data}`);
 
 export const getSingleProducts = (id) => get(`api/${uuid}/ec/product/${id}`);
 
+/**
+ * 訂單
+ */
+
 export const createOrder = (data) => post(`api/${uuid}/ec/orders`, data);
 
-export const cartList = () => get(`api/${uuid}/ec/shopping`);
+/**
+ * 購物車
+ */
 
 export const createCart = (data) => post(`api/${uuid}/ec/shopping`, data);
 

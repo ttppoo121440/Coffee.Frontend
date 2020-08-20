@@ -15,8 +15,7 @@
           <div class="card-pic mb-2">
             <img
               :src="product.imageUrl"
-              alt="card1"
-              class="w-100 h-100"
+              class="img-fluid"
             >
           </div>
           <div class="card-content">
@@ -59,7 +58,7 @@ export default {
   methods: {
     ...mapActions({ addCart: 'Cart/addCart' }),
     goProductPage(id) {
-      this.$router.push(`/Product/${id}`);
+      this.$router.push(`/Product/${id}`).catch(() => {});
     },
   },
 };

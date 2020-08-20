@@ -1,17 +1,17 @@
 <template>
-  <section class="home-list-hot">
+  <section class="list-hot">
     <BgTitle
       :class-name="'right'"
       :title="title"
     />
     <div class="container">
       <div class="p-3">
-        <h2 class="home-border-title">
+        <h2 class="border-title">
           {{ title }}
         </h2>
       </div>
       <div class="row mx-0 list">
-        <Carousel :data="product.productList" />
+        <Carousel :data="product.hotProduct" />
       </div>
       <div class="text-center pb-5 p-3">
         <button

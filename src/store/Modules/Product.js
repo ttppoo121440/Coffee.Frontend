@@ -5,6 +5,7 @@ export default {
   state: () => ({
     productList: [],
     product: {},
+    hotProduct: [],
     category: [],
   }),
 
@@ -48,7 +49,7 @@ export default {
         }
         return temp;
       });
-      commit('SET_DATA', temp);
+      commit('SET_HOT_PRODUCT', temp);
       commit('Loading/LOADING', false, {
         root: true,
       });
@@ -73,6 +74,9 @@ export default {
     SET_PRODUCT(state, status) {
       state.product = Object.freeze(status);
     },
+    SET_HOT_PRODUCT(state, status) {
+      state.hotProduct = Object.freeze(status);
+    },
     SET_CATEGORY(state, status) {
       state.category = Object.freeze(status);
     },
@@ -80,6 +84,7 @@ export default {
       state.productList = [];
       state.product = {};
       state.category = [];
+      state.hotProduct = [];
     },
   },
 };

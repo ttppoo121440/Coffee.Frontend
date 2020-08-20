@@ -19,22 +19,30 @@ const routes = [
       {
         path: '/products',
         name: 'Products',
-        component: () => import(/* webpackChunkName: "Products" */ '@/views/Products'),
+        component: () => import(/* webpackChunkName: "Products" */ '@/views/Products').then(
+          (m) => m.default,
+        ),
       },
       {
         path: '/product/:id',
         name: 'Product',
-        component: () => import(/* webpackChunkName: "Product" */ '@/views/Products/Product'),
+        component: () => import(
+          /* webpackChunkName: "Product" */ '@/views/Products/Product'
+        ).then((m) => m.default),
       },
       {
         path: '/about',
         name: 'About',
-        component: () => import(/* webpackChunkName: "About" */ '@/views/About'),
+        component: () => import(/* webpackChunkName: "About" */ '@/views/About').then(
+          (m) => m.default,
+        ),
       },
       {
         path: '/success',
         name: 'Success',
-        component: () => import(/* webpackChunkName: "Success" */ '@/views/Success'),
+        component: () => import(/* webpackChunkName: "Success" */ '@/views/Success').then(
+          (m) => m.default,
+        ),
       },
       {
         path: '/cart',
@@ -43,7 +51,9 @@ const routes = [
           {
             path: '',
             name: 'Cart',
-            component: () => import(/* webpackChunkName: "Cart" */ '@/views/ShoppingSteps/Cart'),
+            component: () => import(
+              /* webpackChunkName: "Cart" */ '@/views/ShoppingSteps/Cart'
+            ).then((m) => m.default),
           },
         ],
       },

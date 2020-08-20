@@ -10,18 +10,24 @@
         :cart-list="getCart"
         @next="$emit('next')"
       />
+      <HotProduct
+        v-if="$store.state.Product.hotProduct.length !== 0"
+        :data="$store.state.Product.hotProduct"
+      />
     </div>
   </section>
 </template>
 
 <script>
 import { mapGetters } from 'vuex';
+import HotProduct from '@/components/HotProduct';
 import CartList from './components/CartList';
 
 export default {
   name: 'Cart',
   components: {
     CartList,
+    HotProduct,
   },
   computed: {
     ...mapGetters({ getCart: 'Cart/getCart' }),
@@ -33,6 +39,9 @@ export default {
         this.$emit('update:step', value);
       },
     },
+  },
+  mounted() {
+    this.$store.dispatch('Product/getHotProduct');
   },
 };
 </script>

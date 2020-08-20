@@ -11,7 +11,7 @@
           :form-data="formData"
           :rule-form="ruleForm"
           @back="$emit('back')"
-          @next="$emit('next')"
+          @next="$emit('next',formData)"
         />
       </div>
     </div>
@@ -26,15 +26,52 @@ export default {
   components: {
     Form,
   },
-  props: {
-    formData: {
-      type: Object,
-      required: true,
-    },
-    ruleForm: {
-      type: Array,
-      required: true,
-    },
+  data() {
+    return {
+      ruleForm: [
+        {
+          type: 'TextInput',
+          name: '收件人姓名',
+          rules: 'required',
+          prop: 'name',
+        },
+        {
+          type: 'Email', name: 'Email', rules: 'required', prop: 'email',
+        },
+        {
+          type: 'Tel',
+          name: '電話',
+          rules: 'required|digits:10',
+          prop: 'tel',
+          max: 10,
+        },
+        {
+          type: 'TextInput',
+          name: '地址',
+          rules: 'required',
+          prop: 'address',
+        },
+        {
+          type: 'Select',
+          name: '購買方式',
+          rules: 'required',
+          prop: 'payment',
+        },
+        {
+          type: 'TextArea',
+          name: '留言',
+          prop: 'message',
+        },
+      ],
+      formData: {
+        name: '',
+        email: '',
+        tel: '',
+        address: '',
+        payment: null,
+        message: '',
+      },
+    };
   },
 };
 </script>

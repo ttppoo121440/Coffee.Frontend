@@ -1,4 +1,5 @@
 import axios from 'axios';
+import vue from 'vue';
 
 // Axios 初始設定
 
@@ -18,6 +19,12 @@ const httpCode = {
   },
   500: () => {
     console.log(500);
+    vue.notify({
+      group: 'foo',
+      type: 'error',
+      title: '提示',
+      text: '伺服器出錯!',
+    });
   },
   503: () => {
     console.log(503);
@@ -52,25 +59,17 @@ function axiosMethod(method, url, data = {}) {
 }
 
 export function post(url, data = {}) {
-  return new Promise((resolve) => {
-    resolve(axiosMethod('post', url, data));
-  });
+  return axiosMethod('post', url, data);
 }
 
-export function get(url, data = {}) {
-  return new Promise((resolve) => {
-    resolve(axiosMethod('get', url, data));
-  });
+export async function get(url, data = {}) {
+  return axiosMethod('get', url, data);
 }
 
 export function patch(url, data = {}) {
-  return new Promise((resolve) => {
-    resolve(axiosMethod('patch', url, data));
-  });
+  return axiosMethod('patch', url, data);
 }
 
 export function del(url) {
-  return new Promise((resolve) => {
-    resolve(axiosMethod('delete', url));
-  });
+  return axiosMethod('delete', url);
 }

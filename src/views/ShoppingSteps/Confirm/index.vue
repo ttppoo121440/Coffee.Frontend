@@ -34,10 +34,6 @@ export default {
       type: Object,
       required: true,
     },
-    ruleForm: {
-      type: Array,
-      required: true,
-    },
     disabled: {
       type: Boolean,
       default: false,
@@ -46,6 +42,45 @@ export default {
       type: String,
       default: '下一步',
     },
+  },
+  data() {
+    return {
+      ruleForm: [
+        {
+          type: 'TextInput',
+          name: '收件人姓名',
+          rules: 'required',
+          prop: 'name',
+        },
+        {
+          type: 'Email', name: 'Email', rules: 'required', prop: 'email',
+        },
+        {
+          type: 'Tel',
+          name: '電話',
+          rules: 'required|digits:10',
+          prop: 'tel',
+          max: 10,
+        },
+        {
+          type: 'TextInput',
+          name: '地址',
+          rules: 'required',
+          prop: 'address',
+        },
+        {
+          type: 'Select',
+          name: '購買方式',
+          rules: 'required',
+          prop: 'payment',
+        },
+        {
+          type: 'TextArea',
+          name: '留言',
+          prop: 'message',
+        },
+      ],
+    };
   },
 };
 </script>

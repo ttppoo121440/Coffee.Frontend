@@ -69,9 +69,22 @@ export default {
     },
   },
   methods: {
-    async calculation(data) {
-      const qty = await this.$store.dispatch('Cart/productCalculation', data);
-      this.bindingValue = qty;
+    calculation(data) {
+      if (data.quantity === 2) {
+        this.$store.dispatch('Cart/productCalculation', data);
+        this.bindingValue = 2;
+      } else {
+        this.$store.commit('Cart/GET_QTY', data);
+        this.setQty(data);
+      }
+    },
+    setQty(data) {
+      this.$store.state.Cart.goodsList.find((item) => {
+        if (item.product.id === data.product.id) {
+          this.bindingValue = item.quantity;
+        }
+        return false;
+      });
     },
     addCart(product) {
       this.bindingValue = 2;

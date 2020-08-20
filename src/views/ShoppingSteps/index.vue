@@ -7,15 +7,12 @@
     />
     <Information
       v-if="step === 1"
-      :form-data="formData"
-      :rule-form="ruleForm"
       @back="back"
       @next="next"
     />
     <Confirm
       v-if="step === 2"
       :form-data="formData"
-      :rule-form="ruleForm"
       :disabled="true"
       :next-name="nextName"
       @back="back"
@@ -26,11 +23,11 @@
 
 <script>
 import Step from '@/components/Step';
+import scrollTo from '@/components/ScrollTo';
 import Cart from './Cart';
 import Information from './Information';
 import Confirm from './Confirm';
 
-let timer = null;
 export default {
   name: 'ShoppingSteps',
   components: {
@@ -39,44 +36,10 @@ export default {
     Information,
     Confirm,
   },
+  mixins: [scrollTo],
   data() {
     return {
       step: 0,
-      ruleForm: [
-        {
-          type: 'TextInput',
-          name: '收件人姓名',
-          rules: 'required',
-          prop: 'name',
-        },
-        {
-          type: 'Email', name: 'Email', rules: 'required', prop: 'email',
-        },
-        {
-          type: 'Tel',
-          name: '電話',
-          rules: 'required|digits:10',
-          prop: 'tel',
-          max: 10,
-        },
-        {
-          type: 'TextInput',
-          name: '地址',
-          rules: 'required',
-          prop: 'address',
-        },
-        {
-          type: 'Select',
-          name: '購買方式',
-          rules: 'required',
-          prop: 'payment',
-        },
-        {
-          type: 'TextArea',
-          name: '留言',
-          prop: 'message',
-        },
-      ],
       formData: {
         name: '',
         email: '',
@@ -98,35 +61,31 @@ export default {
     this.cartList = this.getCart;
   },
   methods: {
-    async next() {
+    async next(data) {
+      this.setData(data);
       if (this.step === 2) {
-        console.log('完成訂單');
-        this.toTop();
-        const tempCart = this.cartList.map((item) => ({
-          product: item.product.id,
-          quantity: item.quantity,
-        }));
-        await Promise.all(tempCart.map((cart) => this.$store.dispatch('Cart/createCart', cart)));
+        this.scrollTo(0);
+        await Promise.all(this.tempCart().map((cart) => this.$store.dispatch('Cart/createCart', cart)));
         this.$store.dispatch('Cart/createOrder', this.formData).then(() => this.$router.push('/success'));
       } else {
         this.step += 1;
-        this.toTop();
+        this.scrollTo(0);
       }
     },
     back() {
       this.step -= 1;
-      this.toTop();
+      this.scrollTo(0);
     },
-    toTop() {
-      timer = setInterval(() => {
-        const osTop = document.documentElement.scrollTop || document.body.scrollTop;
-        const ispeed = Math.floor(-osTop / 5);
-        document.body.scrollTop = 0;
-        document.documentElement.scrollTop = osTop + ispeed;
-        if (osTop === 0) {
-          clearInterval(timer);
-        }
-      }, 25);
+    setData(data) {
+      if (this.step === 1) {
+        this.formData = data;
+      }
+    },
+    tempCart() {
+      return this.cartList.map((item) => ({
+        product: item.product.id,
+        quantity: item.quantity,
+      }));
     },
   },
 };

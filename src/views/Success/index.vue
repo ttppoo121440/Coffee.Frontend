@@ -14,7 +14,6 @@
         </div>
       </div>
     </div>
-
     <div class="row justify-content-center mb-100">
       <div class="col-md-6">
         <div class="success mt-5">

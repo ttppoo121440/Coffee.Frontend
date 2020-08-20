@@ -2,6 +2,7 @@
   <section class="container product-details mt-200 mb-100">
     <Loading :active.sync="$store.state.Loading.loading" />
     <transition-group
+      v-if="!$store.state.Loading.loading"
       name="page"
       appear
       tag="div"
@@ -14,11 +15,12 @@
         <div class="product-details-pic">
           <img
             :src="product.imageUrl"
-            class="w-100 h-100"
+            class="img-fluid"
           >
         </div>
       </div>
       <ProductDetails
+        v-if="product"
         :key="$route.fullPath"
         :data="product"
         :quantity.sync="quantity"
@@ -26,16 +28,26 @@
         @addCart="addCartHandler"
       />
     </transition-group>
+    <transition name="page">
+      <HotProduct
+        v-if="$store.state.Product.hotProduct.length !== 0"
+        :product-data="product"
+        :data="$store.state.Product.hotProduct"
+        @qty="qty"
+      />
+    </transition>
   </section>
 </template>
 
 <script>
+import HotProduct from '@/components/HotProduct';
 import ProductDetails from '../components/ProductDetails';
 
 export default {
   name: 'Product',
   components: {
     ProductDetails,
+    HotProduct,
   },
   data() {
     return {
@@ -45,18 +57,24 @@ export default {
   },
   computed: {
     product() {
-      return this.$store.state.Product === undefined ? {}
-        : this.$store.state.Product.product;
+      return this.$store.state.Product.product;
     },
   },
-  async mounted() {
-    await this.$store.dispatch(
+  mounted() {
+    this.$store.commit('Product/CLEAR_DATA');
+    this.$store.dispatch(
       'Product/getSingleProducts',
       this.$route.params.id,
     );
+    this.$store.dispatch('Product/getHotProduct');
     this.getCartId();
   },
   methods: {
+    qty(qty) {
+      if (qty !== 0) {
+        this.quantity = qty;
+      }
+    },
     addCart(product) {
       this.quantity = 2;
       this.$store.dispatch('Cart/addProductCart', {
