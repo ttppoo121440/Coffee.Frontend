@@ -19,9 +19,6 @@ export default {
 </script>
 
 <style lang="scss">
-@import "~@/assets/scss/_functions.scss";
-@import "~@/assets/scss/_variables.scss";
-@import "~@/assets/scss/mixins/_breakpoints.scss";
 
 .left {
   &-label {

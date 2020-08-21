@@ -32,8 +32,7 @@ export default {
 </script>
 
 <style lang="scss">
-@import "~@/assets/scss/_functions.scss";
-@import "~@/assets/scss/_variables.scss";
+
 .social .fa-icon {
   color: $white;
 }

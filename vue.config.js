@@ -9,5 +9,16 @@ module.exports = {
     },
     disableHostCheck: true,
   },
+  css: {
+    sourceMap: false,
+    loaderOptions: {
+      scss: {
+        prependData:
+        `@import "~@/assets/scss/functions.scss";
+         @import "~@/assets/scss/variables.scss";
+         @import "~@/assets/scss/mixins/breakpoints.scss";`,
+      },
+    },
+  },
   lintOnSave: process.env.NODE_ENV !== 'production',
 };
