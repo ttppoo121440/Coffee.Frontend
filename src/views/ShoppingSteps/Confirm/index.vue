@@ -45,7 +45,7 @@ export default {
   },
   data() {
     return {
-      ruleForm: [
+      ruleForm: Object.freeze([
         {
           type: 'TextInput',
           name: '收件人姓名',
@@ -79,7 +79,7 @@ export default {
           name: '留言',
           prop: 'message',
         },
-      ],
+      ]),
     };
   },
 };

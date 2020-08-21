@@ -32,12 +32,12 @@ export default {
   },
   data() {
     return {
-      menus: [
+      menus: Object.freeze([
         { name: '首頁', router: '/' },
         { name: '關於我們', router: '/about' },
         { name: '產品專區', router: '/products' },
         { name: '購物車', router: '/cart' },
-      ],
+      ]),
     };
   },
   computed: {

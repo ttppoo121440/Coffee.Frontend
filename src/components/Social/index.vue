@@ -21,11 +21,11 @@ export default {
   name: 'Social',
   data() {
     return {
-      socials: [
+      socials: Object.freeze([
         { icon: 'brands/facebook-square' },
         { icon: 'brands/instagram' },
         { icon: 'brands/twitter-square' },
-      ],
+      ]),
     };
   },
 };

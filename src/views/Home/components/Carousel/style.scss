@@ -1,0 +1,21 @@
+@import "~@/assets/scss/_functions.scss";
+@import "~@/assets/scss/_variables.scss";
+@import "~@/assets/scss/mixins/_breakpoints.scss";
+
+div:focus {
+  outline: none;
+}
+.slick-prev:before,
+.slick-next:before {
+  color: $primary;
+}
+.slick-prev{
+  @include media-down(sm) {
+    left: -10px;
+  }
+}
+.slick-next{
+  @include media-down(sm) {
+    right: -10px;
+  }
+}

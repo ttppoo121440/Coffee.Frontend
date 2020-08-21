@@ -43,7 +43,7 @@
       .list-pic {
         padding: 20px;
       }
-      .list-btns .btn {
+      @at-root.list-btns .btn {
         width: 100%;
         padding: 10px 0;
         margin: 10px 0;

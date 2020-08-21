@@ -1,7 +1,7 @@
 <template>
   <VueSlickCarousel
     v-bind="settings"
-    class="w-100"
+    class="w-100 list"
   >
     <div
       v-for="product in data"
@@ -24,7 +24,7 @@
           <p>售價：{{ product.price }}</p>
           <Buttons
             @goProductPage="goProductPage(product.id)"
-            @addCartHandler="addCart(product)"
+            @addCartHandler="addCartHandler(product)"
           />
         </div>
       </div>
@@ -36,16 +36,19 @@
 import VueSlickCarousel from 'vue-slick-carousel';
 import 'vue-slick-carousel/dist/vue-slick-carousel.css';
 import 'vue-slick-carousel/dist/vue-slick-carousel-theme.css';
-import { mapActions } from 'vuex';
-import Buttons from '@/components/HotProduct/Buttons';
+import Buttons from './Buttons';
 
 export default {
-  name: 'CarouselHome',
+  name: 'SlickCarousel',
   components: { VueSlickCarousel, Buttons },
   props: {
     data: {
       type: Array,
       required: true,
+    },
+    productData: {
+      type: Object,
+      default: () => {},
     },
   },
   data() {
@@ -75,12 +78,12 @@ export default {
     };
   },
   methods: {
-    ...mapActions({ addCart: 'Cart/addCart' }),
     goProductPage(id) {
-      this.$router.push(`/Product/${id}`).catch(() => {});
+      this.$emit('goProductPage', id);
+    },
+    addCartHandler(product) {
+      this.$emit('addCartHandler', product);
     },
   },
 };
 </script>
-
-<style lang="scss" scorpd src="./style.scss"></style>

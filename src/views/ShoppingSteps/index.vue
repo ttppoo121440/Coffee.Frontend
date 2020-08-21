@@ -64,17 +64,17 @@ export default {
     async next(data) {
       this.setData(data);
       if (this.step === 2) {
-        this.scrollTo(0);
+        this.scrollTo();
         await Promise.all(this.tempCart().map((cart) => this.$store.dispatch('Cart/createCart', cart)));
         this.$store.dispatch('Cart/createOrder', this.formData).then(() => this.$router.push('/success'));
       } else {
         this.step += 1;
-        this.scrollTo(0);
+        this.scrollTo();
       }
     },
     back() {
       this.step -= 1;
-      this.scrollTo(0);
+      this.scrollTo();
     },
     setData(data) {
       if (this.step === 1) {

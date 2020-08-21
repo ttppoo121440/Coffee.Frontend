@@ -47,7 +47,7 @@ export default {
   data() {
     return {
       active: '全部',
-      settings: {
+      settings: Object.freeze({
         speed: 500,
         slidesToShow: 4,
         slidesToScroll: 1,
@@ -68,7 +68,7 @@ export default {
             },
           },
         ],
-      },
+      }),
     };
   },
   methods: {
@@ -80,38 +80,4 @@ export default {
 };
 </script>
 
-<style lang="scss" >
-@import "~@/assets/scss/_functions.scss";
-@import "~@/assets/scss/_variables.scss";
-@import "~@/assets/scss/mixins/_breakpoints.scss";
-
-div:focus {
-  outline: none;
-}
-.slick-prev:before,
-.slick-next:before {
-  color: $primary;
-}
-.slick-prev{
-  left: -25px;
-}
-.slick-next{
-  right: -25px;
-}
-.carousel-item {
-  .btn {
-    color: #E1E1E1;
-    border: 2px solid #E1E1E1;
-
-    &.active{
-      color: $primary;
-      border: 2px solid $primary;
-    }
-    @include media-down(sm) {
-      font-size: 16px;
-      font-weight: normal;
-      padding: 10px;
-    }
-  }
-}
-</style>
+<style lang="scss" src="./style.scss"></style>

@@ -45,18 +45,7 @@
                   :value="cart.quantity * cart.product.price"
                 />
               </div>
-              <div class="cart-delete">
-                <button
-                  class="btn btn-outline p-2"
-                  type="button"
-                  @click="cartDelete(cart.product.id)"
-                >
-                  <v-icon
-                    name="trash-alt"
-                    scale="2"
-                  />
-                </button>
-              </div>
+              <CartDelete @cartDelete="cartDelete(cart.product.id)" />
             </div>
           </div>
         </div>
@@ -75,12 +64,14 @@ import { mapActions } from 'vuex';
 import InputNumber from '@/components/InputNumber';
 import AnimatedNumber from 'animated-number-vue';
 import CartFooter from './CartFooter';
+import CartDelete from './CartDelete';
 
 export default {
   name: 'CartList',
   components: {
     InputNumber,
     CartFooter,
+    CartDelete,
     AnimatedNumber,
   },
   props: {

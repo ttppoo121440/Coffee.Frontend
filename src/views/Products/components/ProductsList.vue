@@ -23,20 +23,10 @@
               {{ product.title }}
             </h3>
             <p>售價：{{ product.price }}</p>
-            <div class="card-btns">
-              <button
-                class="btn btn-outline btn-sm mr-2"
-                @click="goProductPage(product.id)"
-              >
-                觀看更多
-              </button>
-              <button
-                class="btn btn-sm mr-2"
-                @click="addCart(product)"
-              >
-                加入購物車
-              </button>
-            </div>
+            <Buttons
+              @goProductPage="goProductPage(product.id)"
+              @addCartHandler="addCart(product)"
+            />
           </div>
         </div>
       </div>
@@ -46,9 +36,13 @@
 
 <script>
 import { mapActions } from 'vuex';
+import Buttons from '@/components/HotProduct/Buttons';
 
 export default {
   name: 'ProductsList',
+  components: {
+    Buttons,
+  },
   props: {
     data: {
       type: Array,

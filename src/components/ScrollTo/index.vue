@@ -7,7 +7,7 @@ export default {
         window.requestAnimationFrame = (callback) => setTimeout(callback, 17);
       }
     },
-    scrollTo(position) {
+    scrollTo(position = 0) {
       this.requestAnimationFrame();
       let scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
       const step = () => {
