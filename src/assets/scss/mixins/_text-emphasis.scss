@@ -7,10 +7,11 @@
     a#{$parent} {
       &:hover,
       &:focus {
-        color: darken(
-          $color,
-          $emphasized-link-hover-darken-percentage
-        ) !important;
+        color:
+          darken(
+            $color,
+            $emphasized-link-hover-darken-percentage
+          ) !important;
       }
     }
   }

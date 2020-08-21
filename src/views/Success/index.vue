@@ -47,22 +47,23 @@ export default {
 
 .success {
   display: flex;
-  justify-content: center;
   flex-wrap: wrap;
+  justify-content: center;
 
   &-box {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    text-align: center;
-    font-weight: 700;
     width: 100%;
     height: 193px;
+    font-weight: 700;
+    text-align: center;
     border: 1px solid $primary;
+
     h2 {
-      font-weight: bold;
       margin-bottom: 30px;
       font-size: 36px;
+      font-weight: bold;
     }
   }
 }

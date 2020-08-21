@@ -5,20 +5,22 @@
 
   &-price {
     display: flex;
+
     span {
       line-height: 30px;
     }
   }
+
   &-count {
     display: flex;
     width: 20%;
   }
 
   &-content {
-    text-align: left;
     display: flex;
     flex-direction: column;
     justify-content: center;
+    text-align: left;
     border-bottom: 3px solid $primary;
 
     h1 {

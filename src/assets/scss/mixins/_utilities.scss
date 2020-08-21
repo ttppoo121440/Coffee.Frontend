@@ -9,7 +9,7 @@
   }
 
   @each $key,
-  $value in $values {
+    $value in $values {
     $properties: map-get($utility, property);
 
     // Multiple properties are possible, for example with vertical or horizontal margins or paddings

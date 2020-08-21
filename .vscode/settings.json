@@ -1,5 +1,6 @@
 {
   //自動格式化
+  "stylelint.autoFixOnSave": true,
   "editor.formatOnSave": false,
   "editor.codeActionsOnSave":{
     "source.fixAll": true
@@ -16,5 +17,5 @@
     {"language": "html","autoFix": true},
     {"language": "javascript","autoFix": true},
     {"language": "vue","autoFix": true},
-  ]
+  ], 
 }

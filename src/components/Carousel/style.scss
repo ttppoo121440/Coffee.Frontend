@@ -1,29 +1,34 @@
 div:focus {
   outline: none;
 }
-.slick-prev:before,
-.slick-next:before {
+
+.slick-prev::before,
+.slick-next::before {
   color: $primary;
 }
-.slick-prev{
+
+.slick-prev {
   left: -25px;
 }
-.slick-next{
+
+.slick-next {
   right: -25px;
 }
+
 .carousel-item {
   .btn {
-    color: #E1E1E1;
-    border: 2px solid #E1E1E1;
+    color: #e1e1e1;
+    border: 2px solid #e1e1e1;
 
-    &.active{
+    &.active {
       color: $primary;
       border: 2px solid $primary;
     }
+
     @include media-down(sm) {
+      padding: 10px;
       font-size: 16px;
       font-weight: normal;
-      padding: 10px;
     }
   }
 }

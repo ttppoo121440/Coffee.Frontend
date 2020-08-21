@@ -5,34 +5,42 @@
         padding: 15px;
       }
     }
+
     @include media-down(lg) {
       padding: 15px;
     }
   }
+
   &-item {
     width: 100%;
+    text-align: left;
     background: $white;
     box-shadow: 1px 2px 5px 2px rgba(0, 0, 0, 0.15);
-    text-align: left;
+
     .card-pic {
       padding: 20px;
     }
   }
+
   &-pic {
     text-align: center;
   }
+
   &-content {
     padding: 0 20px 20px 20px;
-    color: $primary;
     font-weight: 700;
+    color: $primary;
+
     h3 {
       font-size: 24px;
     }
+
     p {
       font-size: 18px;
     }
   }
-  .btn{
+
+  .btn {
     @include media-down(sm) {
       width: 100%;
       padding: 15px 0;

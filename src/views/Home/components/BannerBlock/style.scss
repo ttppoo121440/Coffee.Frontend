@@ -2,38 +2,42 @@
   position: relative;
   height: 78vh;
 
- @include media-down(lg) {
+  @include media-down(lg) {
     height: 90vh;
   }
+
   @include media-down(md) {
     height: 90vh;
   }
+
   @include media-down(sm) {
     height: 100vh;
   }
+
   @at-root .banner {
-    z-index: -1;
     position: absolute;
+    top: -200px;
+    right: 0;
+    bottom: 100px;
+    left: 170px;
+    z-index: -1;
     background: url("~@/assets/images/banner.png") no-repeat center center;
     background-size: cover;
-    top: -200px;
-    bottom: 100px;
-    right: 0;
-    left: 170px;
 
     @include media-down(lg) {
       left: 100px;
     }
 
     @include media-down(sm) {
-      bottom: 0px;
+      bottom: 0;
       left: 50px;
     }
 
     &-text {
       position: absolute;
-      color: $white;
       font-size: 80px;
+      color: $white;
+
       @include media-down(sm) {
         display: none;
       }
@@ -42,6 +46,7 @@
         top: 32%;
         left: 21%;
       }
+
       &:nth-of-type(2) {
         top: 45%;
         left: 21%;
@@ -52,38 +57,39 @@
 
 .carousel {
   &-side {
-    width: 170px;
-    font-size: 20px;
+    position: relative;
     display: flex;
     flex-direction: column;
-    justify-content: center;
     align-items: center;
-    position: relative;
+    justify-content: center;
+    width: 170px;
     height: 100%;
+    font-size: 20px;
 
     @include media-down(lg) {
-      margin-top: 100px;
       width: 100px;
+      margin-top: 100px;
     }
+
     @include media-down(sm) {
-      margin-top: 0;
       width: 50px;
       height: inherit;
+      margin-top: 0;
     }
 
     &-text {
-      width: 20px;
       display: inline-block;
+      width: 20px;
       word-wrap: break-word;
     }
   }
 }
 
 .banner-bottom {
-  display: flex;
-  justify-content: space-between;
   position: absolute;
   bottom: 0;
+  display: flex;
+  justify-content: space-between;
   width: calc(100% - 565px);
   height: 100px;
   line-height: 100px;
@@ -91,6 +97,7 @@
   @include media-down(lg) {
     width: calc(100% - 200px);
   }
+
   @include media-down(sm) {
     position: absolute;
     bottom: 0;
@@ -101,53 +108,58 @@
     color: $white;
     text-align: center;
     background: $primary;
+
     @include media-down(lg) {
-      color: $primary;
       width: 100px;
+      color: $primary;
     }
+
     @include media-down(sm) {
       display: none;
     }
   }
+
   &-line {
     position: relative;
+
     @include media-down(sm) {
       display: none;
     }
+
     &::before {
-      z-index: -1;
-      content: "";
-      width: 200px;
-      height: 1px;
       position: absolute;
       bottom: 10px;
       left: -215px;
+      z-index: -1;
+      width: 200px;
+      height: 1px;
+      content: "";
       border-bottom: 1px solid $primary;
     }
   }
 
   &-more {
     position: absolute;
-    width: 565px;
-    background: $primary;
     right: -565px;
-    height: 200px;
     bottom: 0;
+    width: 565px;
+    height: 200px;
     line-height: 200px;
     color: $white;
     cursor: pointer;
+    background: $primary;
 
     @include media-down(lg) {
-      width: 200px;
-      display: flex;
       right: -200px;
+      display: flex;
+      width: 200px;
     }
 
     @include media-down(sm) {
-      line-height: 100px;
-      height: 100px;
       right: 0;
       left: 0;
+      height: 100px;
+      line-height: 100px;
     }
 
     a {
@@ -159,6 +171,7 @@
     span {
       margin-left: 50px;
     }
+
     &-click {
       @include media-down(lg) {
         margin: 0 auto;

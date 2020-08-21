@@ -21,10 +21,11 @@ export default {
 </script>
 
 <style lang="scss">
-.page-banner{
-  img{
-    max-height: 600px;
+
+.page-banner {
+  img {
     min-height: 300px;
+    max-height: 600px;
   }
 }
 </style>

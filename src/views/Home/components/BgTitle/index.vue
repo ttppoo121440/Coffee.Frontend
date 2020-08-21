@@ -23,16 +23,17 @@ export default {
 .left {
   &-label {
     position: absolute;
-    font-size: 240px;
-    transform: rotate(90deg);
-    left: -300px;
     top: 270px;
+    left: -300px;
     z-index: -100;
+    font-size: 240px;
     color: #f3efea;
+    transform: rotate(90deg);
+
     @include media-down(sm) {
-      font-size: 100px;
+      bottom: 0;
       left: -250px;
-      bottom: 0px;
+      font-size: 100px;
     }
   }
 }
@@ -40,18 +41,18 @@ export default {
 .right {
   &-label {
     position: absolute;
-    font-size: 240px;
-    transform: rotate(90deg);
     right: -300px;
     bottom: 300px;
     z-index: -100;
+    font-size: 240px;
     color: #f3efea;
+    transform: rotate(90deg);
 
     @include media-down(sm) {
-      font-size: 100px;
       top: auto;
-      bottom: 150px;
       right: -125px;
+      bottom: 150px;
+      font-size: 100px;
     }
   }
 }

@@ -1,16 +1,19 @@
 div:focus {
   outline: none;
 }
-.slick-prev:before,
-.slick-next:before {
+
+.slick-prev::before,
+.slick-next::before {
   color: $primary;
 }
-.slick-prev{
+
+.slick-prev {
   @include media-down(sm) {
     left: -10px;
   }
 }
-.slick-next{
+
+.slick-next {
   @include media-down(sm) {
     right: -10px;
   }

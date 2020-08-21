@@ -1,33 +1,32 @@
-.order-summary{
+.order-summary {
   padding: 20px;
 }
-.btn-group{
+
+.btn-group {
   display: flex;
-  justify-content: space-around;
   flex-wrap: wrap;
+  justify-content: space-around;
   margin: 50px 0;
 
   @include media-down(lg) {
     padding: 0 0 50px 0;
   }
- 
 
-  .btn{
+  .btn {
     @include media-down(md) {
       padding: 30px;
     }
+
     @include media-down(sm) {
       padding: 30px;
     }
   }
- 
 }
 
 .cart {
-
   &-item {
-    width: 100%;
     display: flex;
+    width: 100%;
     padding: 10px 0;
     border-top: 1px solid $primary;
 
@@ -36,47 +35,58 @@
         padding-right: 0;
       }
     }
+
     h2 {
       font-size: 1.5rem;
       font-weight: 700;
     }
+
     div {
       align-self: center;
     }
   }
+
   &-detail {
     display: flex;
   }
 
   &-pic {
     padding: 15px 15px 15px 0;
+
     img {
       width: 150px;
       height: 150px;
+
       @include media-down(sm) {
         width: 75px;
         height: 75px;
       }
     }
   }
+
   &-prduct {
     padding-left: 50px;
+
     @include media-down(sm) {
       padding: 0;
     }
   }
+
   &-price-total {
     margin-right: auto;
     font-size: 1.5rem;
+
     @include media-down(sm) {
-      margin-left: auto;
       margin-right: 0;
+      margin-left: auto;
     }
   }
+
   &-price {
     padding-left: 20px;
-    font-size: 20px;
     margin-left: auto;
+    font-size: 20px;
+
     @include media-down(sm) {
       padding-left: 10px;
     }
@@ -84,24 +94,28 @@
 
   &-function {
     display: flex;
+
     @include media-down(sm) {
       flex-direction: row-reverse;
     }
   }
 
-  &-footer{
+  &-footer {
     padding: 50px 0;
-    border-top: 1px solid $primary;
     font-size: 1.5rem;
+    border-top: 1px solid $primary;
 
     &-total {
       display: flex;
+
       @include media-down(md) {
         flex-direction: row-reverse;
       }
     }
+
     &-pricetotal {
       margin-right: auto;
+
       @include media-down(md) {
         margin-right: 0;
         margin-left: auto;

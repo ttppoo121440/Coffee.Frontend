@@ -1,8 +1,9 @@
-.list{
-  margin: 0;
-  padding: 0;
+.list {
   display: flex;
-  &-item{
+  padding: 0;
+  margin: 0;
+
+  &-item {
     display: inline-block;
   }
 }

@@ -1,16 +1,16 @@
 .nav {
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
   display: flex;
-  justify-content: space-between;
   flex-wrap: wrap;
   align-items: center;
-  position: fixed;
+  justify-content: space-between;
   background: #fff;
-  top: 0;
-  left: 0;
-  right: 0;
   box-shadow: 2px 5px 10px rgba(0, 0, 0, 0.3);
   opacity: 0;
-  transition: opacity .5s;
+  transition: opacity 0.5s;
 
   @include media-up(lg) {
     flex-flow: row nowrap;
@@ -24,16 +24,19 @@
       align-items: center;
     }
   }
-  &-btn{
+
+  &-btn {
     display: none;
+
     @include media-down(md) {
       display: block;
     }
   }
+
   &-menu {
-    margin: 0;
-    padding: 0;
     display: flex;
+    padding: 0;
+    margin: 0;
     overflow: hidden;
     transition: all 1s;
 
@@ -42,10 +45,10 @@
     }
 
     @include media-down(md) {
-      height: 0px;
-      width: 100%;
       display: flex;
       flex-direction: column;
+      width: 100%;
+      height: 0;
     }
 
     &.active {
@@ -58,16 +61,16 @@
     &-item {
       display: block;
 
-        @include media-down(md) {
-          border-top: 1px solid $primary;
+      @include media-down(md) {
+        border-top: 1px solid $primary;
       }
 
       a {
-        padding: 38px 30px;
         display: block;
-        color: $black;
+        padding: 38px 30px;
         font-weight: 700;
-        transition: .2s;
+        color: $black;
+        transition: 0.2s;
 
         @include media-down(md) {
           padding: 15px;
@@ -76,13 +79,16 @@
         &.router-link-exact-active {
           color: $primary;
         }
+
         &:hover {
           color: $primary;
+
           @include media-down(md) {
-            background: rgba(0, 0, 0, .1);
             color: $primary;
+            background: rgba(0, 0, 0, 0.1);
           }
         }
+
         &.active {
           @include media-down(sm) {
             color: $black;
@@ -90,75 +96,75 @@
         }
       }
     }
+
     &-icon {
-      cursor: pointer;
       position: relative;
-      background: transparent;
-      margin: auto;
+      z-index: 1040;
       width: 32px;
       height: 30px;
       padding: map-get($spacers, 4);
-      transform: translate(0%, 0%);
-      z-index: 1040;
+      margin: auto;
       margin-right: 20px;
-  
+      cursor: pointer;
+      background: transparent;
+      transform: translate(0%, 0%);
+
       @include media-up(lg) {
         display: none;
       }
-  
+
       &.active span {
         background: transparent;
         box-shadow: 0 2px 2px rgba(0, 0, 0, 0);
-  
+
         &::before {
           top: 0;
-          transform: rotate(45deg);
           transition-delay: 0s, 0.5s;
+          transform: rotate(45deg);
         }
-  
+
         &::after {
           top: 0;
-          transform: rotate(-45deg);
           transition-delay: 0s, 0.5s;
+          transform: rotate(-45deg);
         }
       }
-  
+
       > span {
         position: absolute;
-        width: 30px;
-        height: 4px;
-        background: $primary;
-  
-        display: block;
         top: 50%;
         left: 50%;
-        transform: translate(-50%, -50%);
-        transition: 0.2s;
-        box-shadow: 0 2px 2px rgba(0, 0, 0, 0.2);
+        display: block;
+        width: 30px;
+        height: 4px;
         cursor: pointer;
-  
+        background: $primary;
+        box-shadow: 0 2px 2px rgba(0, 0, 0, 0.2);
+        transition: 0.2s;
+        transform: translate(-50%, -50%);
+
         &::before {
-          content: "";
           position: absolute;
-          width: 100%;
-          height: 100%;
-          background: $primary;
-          display: block;
           top: -10px;
           left: 0;
+          display: block;
+          width: 100%;
+          height: 100%;
+          content: "";
+          background: $primary;
           box-shadow: 0 2px 2px rgba(0, 0, 0, 0.2);
           transition-duration: 0.5s, 0.5s;
         }
-  
+
         &::after {
-          content: "";
           position: absolute;
-          width: 100%;
-          height: 100%;
-          background: $primary;
-          display: block;
           top: 10px;
           left: 0;
+          display: block;
+          width: 100%;
+          height: 100%;
+          content: "";
+          background: $primary;
           box-shadow: 0 2px 2px rgba(0, 0, 0, 0.2);
           transition-duration: 0.5s, 0.5s;
         }

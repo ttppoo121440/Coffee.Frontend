@@ -1,17 +1,19 @@
 .home-list-news {
   position: relative;
   padding-bottom: 65px;
+
   &::after {
-    content: "";
     position: absolute;
     top: 0;
-    left: 50%;
     right: 0;
     bottom: 0;
+    left: 50%;
+    z-index: -1;
+    content: "";
     background: $primary;
     opacity: 0.1;
-    z-index: -1;
   }
+
   .list {
     margin: 175px 0 100px;
 
@@ -20,7 +22,7 @@
     }
 
     .col-xl-4 {
-      padding: 15px ;
+      padding: 15px;
 
       &:not(:first-child) {
         @include media-down(sm) {
@@ -28,9 +30,11 @@
         }
       }
     }
+
     &-item {
       width: 100%;
     }
+
     &-pic {
       height: 320px;
     }
@@ -39,9 +43,9 @@
 
 .border-title {
   position: relative;
-  color: $primary;
-  border-bottom: 1px solid $primary;
+  z-index: 100;
   padding: 110px 0 30px;
   font-size: 54px;
-  z-index: 100;
+  color: $primary;
+  border-bottom: 1px solid $primary;
 }

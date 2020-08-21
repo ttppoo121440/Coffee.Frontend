@@ -1,64 +1,68 @@
-.btn{
+.btn {
+  padding: 10px 20px;
   font-size: 24px;
   font-weight: 700;
-  background: $primary;
-  border-radius: 5px;
-  padding: 10px 20px;
-  border: 2px solid $primary;
   color: $white;
+  background: $primary;
+  border: 2px solid $primary;
+  border-radius: 5px;
 
-  &-outline{
-    background: transparent;
+  &-outline {
     color: $primary;
+    background: transparent;
 
-    &:hover{
-      border: 2px solid $primary !important;
-      background: $primary !important;
+    &:hover {
       color: $white !important;
+      background: $primary !important;
+      border: 2px solid $primary !important;
     }
   }
 
-  &:hover{
-    background: transparent;
+  &:hover {
     color: $primary;
+    background: transparent;
   }
 
-  &-big{
+  &-big {
     padding: 20px 117px;
   }
-  &-sm{
-    font-size: 16px;
+
+  &-sm {
     padding: 0 10px;
+    font-size: 16px;
   }
 
-  &-icon{
+  &-icon {
     background: transparent;
     border-radius: 10px;
-    &:hover{
-      background: $white;
+
+    &:hover {
       color: $white;
+      background: $white;
     }
   }
 
-  &.disabled,&:disabled{
+  &.disabled,
+  &:disabled {
+    color: $gray-300;
+    pointer-events: none;
     background-color: $white;
     border-color: $gray-300;
-    pointer-events: none;
-    color: $gray-300;
   }
-  
 
-  &-right{
+  &-right {
     border-top-right-radius: 0;
     border-bottom-right-radius: 0;
   }
-  &-left{
+
+  &-left {
     border-top-left-radius: 0;
     border-bottom-left-radius: 0;
   }
-  &-input{
+
+  &-input {
     width: 50px;
-    border-radius:0;
     border: 2px solid $primary;
+    border-radius: 0;
   }
 }

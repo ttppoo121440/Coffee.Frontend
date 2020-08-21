@@ -86,9 +86,11 @@ ul.nav-social {
   @include media-down(md) {
     display: none;
   }
+
   .list-item {
     padding: 0 10px;
   }
+
   .fa-icon {
     color: $primary;
   }
