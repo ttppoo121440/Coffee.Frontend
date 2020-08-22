@@ -1,5 +1,6 @@
 <template>
   <section class="my-110">
+    <Loading :active.sync="$store.state.Loading.loading" />
     <div class="text-center my-5">
       <h1 class="title">
         購物車
@@ -41,6 +42,7 @@ export default {
     },
   },
   mounted() {
+    this.$store.commit('Product/CLEAR_DATA');
     this.$store.dispatch('Product/getHotProduct');
   },
 };

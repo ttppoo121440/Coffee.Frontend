@@ -33,7 +33,6 @@ export default {
   },
   mounted() {
     this.$store.commit('Product/CLEAR_DATA');
-    this.$store.commit('Pagination/SET_CURRENT', 1);
     this.$store.dispatch('Product/getHotProduct');
   },
 };

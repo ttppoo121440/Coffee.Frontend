@@ -1,5 +1,8 @@
 <template>
-  <nav>
+  <nav
+    v-if="totalPages !== 1"
+    class="container"
+  >
     <ul class="pagination">
       <li
         class="page-item"
@@ -44,11 +47,11 @@
 </template>
 
 <script>
-import ScrollTo from '@/components/ScrollTo';
+import scrollTo from '@/components/ScrollTo';
 
 export default {
   name: 'Pagination',
-  mixins: [ScrollTo],
+  mixins: [scrollTo],
   props: {
     current: {
       type: Number,
@@ -67,7 +70,7 @@ export default {
   },
   methods: {
     ChangeNav(index) {
-      this.ScrollTo();
+      this.scrollTo();
       this.$emit('ChangeNav', index);
     },
   },

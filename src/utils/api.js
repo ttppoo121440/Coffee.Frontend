@@ -6,7 +6,7 @@ const uuid = process.env.VUE_APP_UUID;
  * 產品
  */
 
-export const getProduct = (data) => get(`api/${uuid}/ec/products?${data}`);
+export const getProduct = () => get(`api/${uuid}/ec/products?page=1&paged=100`);
 
 export const getSingleProducts = (id) => get(`api/${uuid}/ec/product/${id}`);
 

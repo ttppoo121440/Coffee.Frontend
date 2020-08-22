@@ -1,11 +1,9 @@
-@import './functions';
-@import './variables';
-@import './mixin';
-@import './reset';
-@import './grid';
-@import './utilities';
-@import './animations';
-@import './transition';
+@import './helpers/functions';
+@import './helpers/variables';
+@import './helpers/mixin';
+@import './helpers/reset';
+@import './helpers/grid';
+@import './helpers/utilities';
 @import './utils/api';
 @import './components/buttons';
 @import './components/pagination';

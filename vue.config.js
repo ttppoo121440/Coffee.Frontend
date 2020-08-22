@@ -14,8 +14,8 @@ module.exports = {
     loaderOptions: {
       scss: {
         prependData:
-        `@import "~@/assets/scss/functions.scss";
-         @import "~@/assets/scss/variables.scss";
+        `@import "~@/assets/scss/helpers/functions.scss";
+         @import "~@/assets/scss/helpers/variables.scss";
          @import "~@/assets/scss/mixins/breakpoints.scss";`,
       },
     },

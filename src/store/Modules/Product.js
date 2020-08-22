@@ -11,26 +11,20 @@ export default {
     category: [],
   },
   actions: {
-    async getProduct({ commit, rootState }) {
+    async getProduct({ commit }) {
       commit('Loading/LOADING', true, {
         root: true,
       });
 
       let result = null;
       try {
-        result = await getProduct(`page=${rootState.Pagination.current}&paged=${rootState.Pagination.paged}`);
+        result = await getProduct();
       } finally {
         commit('Loading/LOADING', false, {
           root: true,
         });
       }
 
-      commit('Pagination/SET_TOTAL', result.meta.pagination.total, {
-        root: true,
-      });
-      commit('Pagination/SET_TOTAL_PAGES', result.meta.pagination.total_pages, {
-        root: true,
-      });
       commit('SET_DATA', result.data);
 
       const adapter = new Category(result.data);
@@ -38,24 +32,18 @@ export default {
 
       return result;
     },
-    async getHotProduct({ commit, rootState }) {
+    async getHotProduct({ commit }) {
       commit('Loading/LOADING', true, {
         root: true,
       });
       let result = null;
       try {
-        result = await getProduct(`page=${rootState.Pagination.current}&paged=${rootState.Pagination.paged}`);
+        result = await getProduct();
       } finally {
         commit('Loading/LOADING', false, {
           root: true,
         });
       }
-      commit('Pagination/SET_TOTAL', result.meta.pagination.total, {
-        root: true,
-      });
-      commit('Pagination/SET_TOTAL_PAGES', result.meta.pagination.total_pages, {
-        root: true,
-      });
 
       const adapter = new HotProduct(result.data);
       commit('SET_HOT_PRODUCT', adapter.transform());
