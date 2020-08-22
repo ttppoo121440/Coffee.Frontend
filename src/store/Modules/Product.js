@@ -1,4 +1,6 @@
 import { getProduct, getSingleProducts } from '@/utils/api';
+import Category from '@/utils/Adapter/Product/Category';
+import HotProduct from '@/utils/Adapter/Product/HotProduct';
 
 export default {
   namespaced: true,
@@ -13,6 +15,7 @@ export default {
       commit('Loading/LOADING', true, {
         root: true,
       });
+
       let result = null;
       try {
         result = await getProduct(`page=${rootState.Pagination.current}&paged=${rootState.Pagination.paged}`);
@@ -30,10 +33,8 @@ export default {
       });
       commit('SET_DATA', result.data);
 
-      const category = new Set();
-      result.data.forEach((item) => (category.has(item.category)
-        ? false : category.add(item.category)));
-      commit('SET_CATEGORY', Array.from(category));
+      const adapter = new Category(result.data);
+      commit('SET_CATEGORY', adapter.transform());
 
       return result;
     },
@@ -55,14 +56,9 @@ export default {
       commit('Pagination/SET_TOTAL_PAGES', result.meta.pagination.total_pages, {
         root: true,
       });
-      const temp = [];
-      result.data.map((item) => {
-        if (item.category === '熱門') {
-          temp.push(item);
-        }
-        return temp;
-      });
-      commit('SET_HOT_PRODUCT', temp);
+
+      const adapter = new HotProduct(result.data);
+      commit('SET_HOT_PRODUCT', adapter.transform());
 
       return result;
     },
