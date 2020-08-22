@@ -27,7 +27,7 @@ const routes = [
         path: '/product/:id',
         name: 'Product',
         component: () => import(
-          /* webpackChunkName: "Product" */ '@/views/Products/Product'
+          /* webpackChunkName: "Product" */ '@/views/Product'
         ).then((m) => m.default),
       },
       {
@@ -58,6 +58,10 @@ const routes = [
         ],
       },
     ],
+  },
+  {
+    path: '*',
+    redirect: '/',
   },
 ];
 

@@ -1,47 +1,24 @@
 <template>
   <section class="container product-details mt-200 mb-100">
     <Loading :active.sync="$store.state.Loading.loading" />
-    <transition-group
-      v-if="!$store.state.Loading.loading"
-      name="page"
-      appear
-      tag="div"
-      class="row"
-    >
-      <div
-        :key="$route.name"
-        class="col-md-6 my-auto"
-      >
-        <div class="product-details-pic">
-          <img
-            :src="product.imageUrl"
-            class="img-fluid"
-          >
-        </div>
-      </div>
-      <ProductDetails
-        v-if="product"
-        :key="$route.fullPath"
-        :data="product"
-        :quantity.sync="quantity"
-        :cart="cart"
-        @addCart="addCartHandler"
-      />
-    </transition-group>
-    <transition name="page">
-      <HotProduct
-        v-if="$store.state.Product.hotProduct.length !== 0"
-        :product-data="product"
-        :data="$store.state.Product.hotProduct"
-        @qty="qty"
-      />
-    </transition>
+    <ProductDetails
+      v-if="product"
+      :data="product"
+      :quantity.sync="quantity"
+      @addCart="addCartHandler"
+    />
+    <HotProduct
+      v-if="$store.state.Product.hotProduct.length !== 0"
+      :product-data="product"
+      :data="$store.state.Product.hotProduct"
+      @qty="qty"
+    />
   </section>
 </template>
 
 <script>
 import HotProduct from '@/components/HotProduct';
-import ProductDetails from '../components/ProductDetails';
+import ProductDetails from './components/ProductDetails';
 
 export default {
   name: 'Product',
@@ -52,7 +29,6 @@ export default {
   data() {
     return {
       quantity: 1,
-      cart: [],
     };
   },
   computed: {
@@ -60,13 +36,10 @@ export default {
       return this.$store.state.Product.product;
     },
   },
-  mounted() {
+  async mounted() {
     this.$store.commit('Product/CLEAR_DATA');
-    this.$store.dispatch(
-      'Product/getSingleProducts',
-      this.$route.params.id,
-    );
-    this.$store.dispatch('Product/getHotProduct');
+    await this.$store.dispatch('Product/getSingleProducts', this.$route.params.id);
+    await this.$store.dispatch('Product/getHotProduct');
     this.getCartId();
   },
   methods: {
@@ -77,10 +50,7 @@ export default {
     },
     addCart(product) {
       this.quantity = 2;
-      this.$store.dispatch('Cart/addProductCart', {
-        product,
-        quantity: this.quantity,
-      });
+      this.$store.dispatch('Cart/addCart', product);
     },
     editCart(product) {
       this.quantity += 1;

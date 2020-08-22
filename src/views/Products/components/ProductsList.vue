@@ -25,7 +25,7 @@
             <p>售價：{{ product.price }}</p>
             <Buttons
               @goProductPage="goProductPage(product.id)"
-              @addCartHandler="addCart(product)"
+              @addCartHandler="addCartHandler(product)"
             />
           </div>
         </div>
@@ -53,6 +53,15 @@ export default {
     ...mapActions({ addCart: 'Cart/addCart' }),
     goProductPage(id) {
       this.$router.push(`/Product/${id}`).catch(() => {});
+    },
+    addCartHandler(product) {
+      this.addCart(product);
+      this.$notify({
+        group: 'foo',
+        type: 'success',
+        title: '提示',
+        text: '加入購物車成功!',
+      });
     },
   },
 };

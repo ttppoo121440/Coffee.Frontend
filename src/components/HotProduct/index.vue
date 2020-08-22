@@ -1,17 +1,26 @@
 <template>
-  <section class="list-hot no-bg">
-    <div class="p-3">
+  <transition-group
+    name="page"
+    appear
+    tag="section"
+    class="list-hot no-bg"
+  >
+    <div
+      :key="title"
+      class="p-3"
+    >
       <h2 class="border-title ">
-        熱門商品
+        {{ title }}
       </h2>
     </div>
     <SlickCarousel
+      :key="$options.name"
       :data="data"
       :product-data="productData"
       @goProductPage="goProductPage"
       @addCartHandler="addCartHandler"
     />
-  </section>
+  </transition-group>
 </template>
 
 <script>
@@ -19,7 +28,7 @@ import { mapActions } from 'vuex';
 import SlickCarousel from './SlickCarousel';
 
 export default {
-  name: 'CarouselHome',
+  name: 'HotProduct',
   components: { SlickCarousel },
   props: {
     data: {
@@ -31,6 +40,11 @@ export default {
       default: () => {},
     },
   },
+  data() {
+    return {
+      title: Object.freeze('熱門商品'),
+    };
+  },
   methods: {
     ...mapActions({ addCart: 'Cart/addCart' }),
     goProductPage(id) {
@@ -41,17 +55,19 @@ export default {
       if (this.productData !== undefined) {
         this.getQty(product);
       }
-    },
-    getQty(data) {
-      let qty = 0;
-      this.$store.state.Cart.goodsList.find((item) => {
-        if (this.productData.id === data.id) {
-          qty = item.quantity;
-          return qty;
-        }
-        return qty;
+      this.$notify({
+        group: 'foo',
+        type: 'success',
+        title: '提示',
+        text: '加入購物車成功!',
       });
-      this.$emit('qty', qty);
+    },
+    getQty() {
+      this.$store.state.Cart.goodsList.forEach((item) => {
+        if (this.productData.id === item.product.id) {
+          this.$emit('qty', item.quantity);
+        }
+      });
     },
   },
 };

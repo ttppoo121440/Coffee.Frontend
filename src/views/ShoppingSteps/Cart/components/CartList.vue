@@ -26,7 +26,7 @@
                   <InputNumber
                     :quantity="cart.quantity"
                     :data="cart.product"
-                    @calculation="calculation"
+                    @calculation="changeValue"
                     @changeValue="changeValue"
                   />
                   <div class="cart-price">
@@ -83,7 +83,6 @@ export default {
   methods: {
     ...mapActions({
       cartDelete: 'Cart/cartDelete',
-      calculation: 'Cart/calculation',
       changeValue: 'Cart/changeValue',
     }),
     formatToPrice(value) {
