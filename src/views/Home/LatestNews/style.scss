@@ -36,7 +36,37 @@
     }
 
     &-pic {
-      height: 320px;
+      position: relative;
+
+      &:hover span {
+        opacity: 1;
+      }
+
+      &:hover img {
+        filter: brightness(50%);
+      }
+
+      img {
+        @include media-down(sm) {
+          filter: brightness(50%);
+        }
+      }
+
+      span {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        font-size: 20px;
+        font-weight: 700;
+        color: $white;
+        opacity: 0;
+        transition: all 0.5s;
+        transform: translate(-50%, -50%);
+
+        @include media-down(sm) {
+          opacity: 1;
+        }
+      }
     }
   }
 }

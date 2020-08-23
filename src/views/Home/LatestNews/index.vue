@@ -10,59 +10,44 @@
           {{ title }}
         </h2>
       </div>
-      <div class="row mx-0 list">
-        <div class="col-md-6 col-xl-4 col-lg-4">
-          <div class="list-item">
-            <div class="list-pic mb-2">
-              <img
-                src="~@/assets/images/pexels-photo-4457107.png"
-                alt="list1"
-                class="w-100 h-100"
-              >
-            </div>
-            <span class="text-primary">2020/06/25</span>
-          </div>
-        </div>
-        <div class="col-md-6 col-xl-4 col-lg-4">
-          <div class="list-item">
-            <div class="list-pic mb-2">
-              <img
-                src="~@/assets/images/pexels-photo-4457107.png"
-                alt="list1"
-                class="w-100 h-100"
-              >
-            </div>
-            <span class="text-primary">2020/06/25</span>
-          </div>
-        </div>
-        <div class="col-md-6 col-xl-4 col-lg-4">
-          <div class="list-item">
-            <div class="list-pic mb-2">
-              <img
-                src="~@/assets/images/Group 215.png"
-                alt="list1"
-                class="w-100 h-100"
-              >
-            </div>
-            <span class="text-primary">2020/06/25</span>
-          </div>
-        </div>
-      </div>
+      <NewsList :data="newsList" />
     </div>
   </section>
 </template>
 
 <script>
 import BgTitle from '../components/BgTitle';
+import NewsList from './components/NewsList';
+
+import newsPic1 from '../../../assets/images/news1.png';
+import newsPic2 from '../../../assets/images/news2.png';
+import newsPic3 from '../../../assets/images/news3.png';
 
 export default {
   name: 'LatestNews',
   components: {
     BgTitle,
+    NewsList,
   },
   data() {
     return {
-      title: '最新消息',
+      title: Object.freeze('最新消息'),
+      newsList: Object.freeze([{
+        pic: newsPic1,
+        text: '每早一杯咖啡，上班更有精神',
+        date: '2020/06/25',
+      },
+      {
+        pic: newsPic2,
+        text: '七夕情人節，咖啡買一送一',
+        date: '2020/07/26',
+      },
+      {
+        pic: newsPic3,
+        text: '午後下午餐時光，咖啡搭配蛋糕享八折優惠',
+        date: '2020/08/23',
+      },
+      ]),
     };
   },
 };

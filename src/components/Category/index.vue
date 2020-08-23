@@ -1,9 +1,9 @@
 <template>
   <VueSlickCarousel
     v-bind="settings"
-    class="text-center"
+    class="text-center category"
   >
-    <div class="carousel-item">
+    <div class="category-item">
       <button
         type="button"
         class="btn btn-outline"
@@ -16,7 +16,7 @@
     <div
       v-for="category in categorys"
       :key="category"
-      class="carousel-item"
+      class="category-item"
     >
       <button
         type="button"

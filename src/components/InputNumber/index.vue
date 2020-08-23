@@ -8,10 +8,11 @@
       -
     </button>
     <input
+      v-inputInt
       :value="quantity"
-      type="text"
       class="text-center btn-input"
       maxlength="3"
+      type="text"
       @change="changeValue"
     >
     <button

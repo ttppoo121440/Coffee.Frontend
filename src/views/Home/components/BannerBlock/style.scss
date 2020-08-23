@@ -1,6 +1,6 @@
 .banner-block {
   position: relative;
-  height: 78vh;
+  height: 79vh;
 
   @include media-down(lg) {
     height: 90vh;
@@ -16,7 +16,7 @@
 
   @at-root .banner {
     position: absolute;
-    top: -200px;
+    top: -207px;
     right: 0;
     bottom: 100px;
     left: 170px;
@@ -36,7 +36,9 @@
     &-text {
       position: absolute;
       font-size: 80px;
+      font-weight: 900;
       color: $white;
+      letter-spacing: 5px;
 
       @include media-down(sm) {
         display: none;
@@ -63,7 +65,7 @@
     align-items: center;
     justify-content: center;
     width: 170px;
-    height: 100%;
+    height: calc(100% - 100px);
     font-size: 20px;
 
     @include media-down(lg) {

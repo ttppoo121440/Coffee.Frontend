@@ -6,6 +6,7 @@ import '@/plugins/VueAwesome';
 import '@/plugins/VueLoading';
 import '@/plugins/VueNotification';
 import '@/plugins/VeeValidate';
+import '@/utils/directive';
 
 Vue.config.productionTip = false;
 

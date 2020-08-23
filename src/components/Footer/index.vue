@@ -8,7 +8,7 @@
         <div class="col-md-6">
           <div class="information">
             <Social />
-            <p>04-12345678</p>
+            <p>04-49728223</p>
             <p>ttppoo12144@gmail.com</p>
           </div>
         </div>

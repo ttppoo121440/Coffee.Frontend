@@ -1,12 +1,6 @@
 <template>
   <header class="header">
-    <div class="logo pl-3">
-      <a href="#">
-        <h1>
-          Logo
-        </h1>
-      </a>
-    </div>
+    <Logo />
     <Menu :class-name="'header-menu'" />
     <Social />
   </header>
@@ -14,6 +8,7 @@
 
 <script>
 import Menu from '@/components/Menu';
+import Logo from '@/components/Logo';
 import Social from '@/components/Social';
 
 export default {
@@ -21,6 +16,7 @@ export default {
   components: {
     Menu,
     Social,
+    Logo,
   },
 };
 </script>

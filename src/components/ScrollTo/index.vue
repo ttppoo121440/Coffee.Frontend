@@ -12,7 +12,7 @@ export default {
       let scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
       const step = () => {
         const distance = position - scrollTop;
-        scrollTop += distance / 5;
+        scrollTop += distance / 10;
         if (Math.abs(distance) < 1) {
           window.scrollTo(0, position);
         } else {

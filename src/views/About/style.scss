@@ -91,7 +91,7 @@
 .about {
   &-pic {
     left: 41.5%;
-    background-image: url('https://cdn.stocksnap.io/img-thumbs/960w/barista-pouring_MD4L58LL1E.jpg');
+    background-image: url('~@/assets/images/about.png');
     filter: none;
 
     @include media-down(md) {
@@ -131,8 +131,6 @@
 
       @include media-down(md) {
         padding: 30px;
-        padding-right: 0;
-        padding-left: 0;
         font-size: 20px;
       }
     }

@@ -1,10 +1,6 @@
 <template>
   <section>
-    <Banner
-      :src="
-        'https://cdn.stocksnap.io/img-thumbs/960w/menu-chalkboard_AO8NDC5UDL.jpg'
-      "
-    />
+    <Banner />
     <div class="container">
       <div class="text-center my-100">
         <h1 class="title">
@@ -17,10 +13,9 @@
         <div class="col-lg-5 p-0">
           <div class="about-content">
             <p>
-              喵喵咖啡在於創辦人在澳洲時創立，本咖啡館的所有咖啡都串辦人
-              Jethro
-              將自家的貓咪餵食咖啡豆後所排泄烘乾製成的。每一杯咖啡都有貓咪本身的味道，
-              讓你不用吸貓就可以吸食到貓咪的原汁原味，味道絕對不輸伊索比亞麝香貓咖啡。
+              喵喵咖啡館在於創辦人在澳洲時創立，我們的理念很簡單-提供優質的食物和咖啡，
+              咖啡具有使人們停下來和彼此互動的能力。人與人之間的聯繫就是我們在這裡的原因，有時我們意識到這就像兩個拿鐵一樣簡單。
+              享用咖啡，早餐或午餐，我們隨時為您服務！
             </p>
             <span>1999</span>
           </div>
@@ -51,8 +46,8 @@
       </ul>
       <div class="time-content">
         <p>
-          這一天創辦人在家寫code，拿起一 旁的咖啡喝了一口，越喝越賭爛，
-          才發現自家的貓在咖啡中拉屎了。 但從沒寫到這貓屎咖啡竟然有提神 的功效!
+          這一天創辦人在家寫Code，拿起一旁的咖啡喝了一口，越喝越有靈感，
+          越寫越起勁，才發現原來咖啡這麼棒，最後放棄寫Code跑去開咖啡館了！
         </p>
       </div>
     </div>

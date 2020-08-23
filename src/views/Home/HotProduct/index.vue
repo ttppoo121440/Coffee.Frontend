@@ -11,7 +11,7 @@
         </h2>
       </div>
       <div class="row mx-0 list">
-        <Carousel :data="product.hotProduct" />
+        <HotList :data="product.hotProduct" />
       </div>
       <div class="text-center pb-5 p-3">
         <button
@@ -28,13 +28,13 @@
 
 <script>
 import BgTitle from '../components/BgTitle';
-import Carousel from '../components/Carousel';
+import HotList from './components/HotList';
 
 export default {
-  name: 'HotProduct',
+  name: 'HomeHotProduct',
   components: {
     BgTitle,
-    Carousel,
+    HotList,
   },
   data() {
     return {

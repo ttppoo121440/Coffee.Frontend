@@ -1,10 +1,12 @@
 <template>
   <section>
     <Loading :active.sync="$store.state.Loading.loading" />
-    <Banner :src="'https://cdn.stocksnap.io/img-thumbs/960w/menu-chalkboard_AO8NDC5UDL.jpg'" />
+    <Banner id="banner" />
     <div class="container">
       <div class="text-center my-5">
-        <h1 class="title">
+        <h1
+          class="title"
+        >
           產品專區
         </h1>
       </div>

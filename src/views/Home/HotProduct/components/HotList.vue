@@ -40,7 +40,7 @@ import { mapActions } from 'vuex';
 import Buttons from '@/components/HotProduct/Buttons';
 
 export default {
-  name: 'CarouselHome',
+  name: 'HotList',
   components: { VueSlickCarousel, Buttons },
   props: {
     data: {
@@ -92,4 +92,4 @@ export default {
 };
 </script>
 
-<style lang="scss" src="./style.scss"></style>
+<style lang="scss"  src="./style.scss"></style>

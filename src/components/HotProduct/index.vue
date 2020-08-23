@@ -1,10 +1,5 @@
 <template>
-  <transition-group
-    name="page"
-    appear
-    tag="section"
-    class="list-hot no-bg"
-  >
+  <section class="list-hot no-bg">
     <div
       :key="title"
       class="p-3"
@@ -20,7 +15,7 @@
       @goProductPage="goProductPage"
       @addCartHandler="addCartHandler"
     />
-  </transition-group>
+  </section>
 </template>
 
 <script>
@@ -73,4 +68,4 @@ export default {
 };
 </script>
 
-<style lang="scss" src="./style.scss"></style>
+<style lang="scss"  scoped src="./style.scss"></style>

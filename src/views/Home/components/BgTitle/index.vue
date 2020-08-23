@@ -23,7 +23,7 @@ export default {
 .left {
   &-label {
     position: absolute;
-    top: 270px;
+    top: 200px;
     left: -300px;
     z-index: -100;
     font-size: 240px;
@@ -31,9 +31,7 @@ export default {
     transform: rotate(90deg);
 
     @include media-down(sm) {
-      bottom: 0;
-      left: -250px;
-      font-size: 100px;
+      display: none;
     }
   }
 }
@@ -49,10 +47,7 @@ export default {
     transform: rotate(90deg);
 
     @include media-down(sm) {
-      top: auto;
-      right: -125px;
-      bottom: 150px;
-      font-size: 100px;
+      display: none;
     }
   }
 }

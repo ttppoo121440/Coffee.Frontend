@@ -6,6 +6,7 @@
   background: $primary;
   border: 2px solid $primary;
   border-radius: 5px;
+  transition: all 0.6s;
 
   &-outline {
     color: $primary;

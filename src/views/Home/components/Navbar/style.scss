@@ -16,6 +16,23 @@
     opacity: 1;
   }
 
+  .logo {
+    letter-spacing: 5px;
+
+    a {
+      display: block;
+    }
+
+    h1 {
+      display: block;
+      height: 100%;
+      margin: 0;
+      font-family: 'Poiret One', cursive;
+      font-weight: 900;
+      line-height: 100px;
+    }
+  }
+
   &-menu {
     &-item {
       a {

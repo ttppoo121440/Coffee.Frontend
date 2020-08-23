@@ -3,15 +3,7 @@
     class="nav"
     :class="{ show: scrollTopHeight >= 200 }"
   >
-    <div class="logo pl-3">
-      <router-link to="/">
-        <img
-          src="~@/assets/images/logo.png"
-          alt="logo"
-          height="100"
-        >
-      </router-link>
-    </div>
+    <Logo />
     <div class="nav-btn">
       <button
         class="nav-menu-icon btn-icon"
@@ -31,6 +23,7 @@
 
 <script>
 import Menu from '@/components/Menu';
+import Logo from '@/components/Logo';
 import Social from '@/components/Social';
 
 export default {
@@ -38,6 +31,7 @@ export default {
   components: {
     Menu,
     Social,
+    Logo,
   },
   data() {
     return {

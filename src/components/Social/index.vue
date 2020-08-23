@@ -6,8 +6,9 @@
       class="list-item"
     >
       <a
-        href="#"
+        :href="social.href"
         class="text-witht"
+        target="_blank"
       ><v-icon
         :name="social.icon"
         scale="2"
@@ -22,9 +23,9 @@ export default {
   data() {
     return {
       socials: Object.freeze([
-        { icon: 'brands/facebook-square' },
-        { icon: 'brands/instagram' },
-        { icon: 'brands/twitter-square' },
+        { icon: 'brands/facebook-square', href: 'https://www.facebook.com/profile.php?id=100003361697042' },
+        { icon: 'brands/instagram', href: 'https://www.instagram.com/' },
+        { icon: 'brands/github-square', href: 'https://github.com/ttppoo121440/Coffee.Frontend' },
       ]),
     };
   },

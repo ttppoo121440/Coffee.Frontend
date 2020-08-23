@@ -70,7 +70,8 @@ export default {
   },
   methods: {
     ChangeNav(index) {
-      this.scrollTo();
+      const banner = document.querySelector('#banner');
+      this.scrollTo(banner.offsetHeight);
       this.$emit('ChangeNav', index);
     },
   },

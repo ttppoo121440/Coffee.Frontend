@@ -4,7 +4,7 @@
       <span class="w-100">喵喵咖啡館</span>
     </div>
     <div class="ml-auto mr-5">
-      <span class="banner-bottom-line">喵喵咖啡</span>
+      <span class="banner-bottom-line">喵喵咖啡館</span>
     </div>
     <div
       class="banner-bottom-more"

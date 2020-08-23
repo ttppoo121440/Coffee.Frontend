@@ -7,6 +7,11 @@ div:focus {
   color: $primary;
 }
 
+.slick-prev,
+.slick-next {
+  z-index: 100;
+}
+
 .slick-prev {
   @include media-down(sm) {
     left: -10px;

@@ -1,7 +1,7 @@
 <template>
   <div class="page-banner">
     <img
-      :src="src"
+      src="~@/assets/images/page-banner.png"
       alt="banner"
       class="w-100"
     >
@@ -11,12 +11,6 @@
 <script>
 export default {
   name: 'Banner',
-  props: {
-    src: {
-      type: String,
-      required: true,
-    },
-  },
 };
 </script>
 
