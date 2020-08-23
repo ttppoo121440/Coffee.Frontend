@@ -20,5 +20,10 @@ npm run build
 npm run lint
 ```
 
+### Style Lints and fixes files
+```
+npm run lint:css
+```
+
 ### Customize configuration
 See [Configuration Reference](https://cli.vuejs.org/config/).
