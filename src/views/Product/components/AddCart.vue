@@ -3,7 +3,7 @@
     <button
       class="btn"
       :class="{disabled:quantity===999}"
-      @click="$emit('addCart')"
+      @click="addCart"
     >
       加到購物車
     </button>
@@ -17,6 +17,11 @@ export default {
     quantity: {
       type: Number,
       required: true,
+    },
+  },
+  methods: {
+    addCart() {
+      this.$emit('addCart');
     },
   },
 };

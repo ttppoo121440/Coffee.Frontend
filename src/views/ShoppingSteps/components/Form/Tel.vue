@@ -3,7 +3,12 @@
     v-slot="{ errors, classes }"
     :rules="rules"
   >
-    <label :for="title">{{ title }}</label>
+    <label
+      :for="title"
+    >{{ title }}<span
+      v-if="required"
+      class="text-danger"
+    >*</span></label>
     <input
       :id="title"
       v-model="bindingValue"
@@ -41,6 +46,10 @@ export default {
       required: true,
     },
     disabled: {
+      type: Boolean,
+      default: false,
+    },
+    required: {
       type: Boolean,
       default: false,
     },

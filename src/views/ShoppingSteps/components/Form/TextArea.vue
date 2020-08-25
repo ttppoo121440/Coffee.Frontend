@@ -3,7 +3,12 @@
     v-slot="{ errors }"
     :rules="rules"
   >
-    <label :for="title">{{ title }}</label>
+    <label
+      :for="title"
+    >{{ title }}<span
+      v-if="required"
+      class="text-danger"
+    >*</span></label>
     <textarea
       :id="title"
       v-model="bindingValue"
@@ -36,6 +41,10 @@ export default {
       default: '',
     },
     disabled: {
+      type: Boolean,
+      default: false,
+    },
+    required: {
       type: Boolean,
       default: false,
     },

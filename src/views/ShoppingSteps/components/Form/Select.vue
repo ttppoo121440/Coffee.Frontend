@@ -3,7 +3,12 @@
     v-slot="{ errors }"
     :rules="rules"
   >
-    <label :for="title">{{ title }}</label>
+    <label
+      :for="title"
+    >{{ title }} <span
+      v-if="required"
+      class="text-danger"
+    >*</span></label>
     <select
       :id="title"
       v-model="bindingValue"
@@ -33,7 +38,7 @@
 
 <script>
 export default {
-  name: 'Email',
+  name: 'Select',
   props: {
     title: {
       type: String,
@@ -48,6 +53,10 @@ export default {
       default: '',
     },
     disabled: {
+      type: Boolean,
+      default: false,
+    },
+    required: {
       type: Boolean,
       default: false,
     },

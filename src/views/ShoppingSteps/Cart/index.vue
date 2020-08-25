@@ -1,6 +1,5 @@
 <template>
   <section class="my-110">
-    <Loading :active.sync="$store.state.Loading.loading" />
     <div class="text-center my-5">
       <h1 class="title">
         購物車
@@ -11,9 +10,10 @@
         :cart-list="getCart"
         @next="$emit('next')"
       />
+    </div>
+    <div class="container">
       <HotProduct
-        v-if="$store.state.Product.hotProduct.length !== 0"
-        :data="$store.state.Product.hotProduct"
+        :data="hotProductData"
       />
     </div>
   </section>
@@ -21,8 +21,8 @@
 
 <script>
 import { mapGetters } from 'vuex';
-import HotProduct from '@/components/HotProduct';
-import CartList from './components/CartList';
+import HotProduct from '@/components/HotProduct/index.vue';
+import CartList from './components/CartList.vue';
 
 export default {
   name: 'Cart',
@@ -32,6 +32,10 @@ export default {
   },
   computed: {
     ...mapGetters({ getCart: 'Cart/getCart' }),
+    hotProductData() {
+      return this.$store.state.Product.hotProduct.length === 0 ? []
+        : this.$store.state.Product.hotProduct;
+    },
     bindingStep: {
       get() {
         return this.step;
@@ -48,4 +52,8 @@ export default {
 };
 </script>
 
-<style lang="scss" src="./style.scss"></style>
+<style lang="scss" src="./style.scss">
+.test {
+  position: relative;
+}
+</style>

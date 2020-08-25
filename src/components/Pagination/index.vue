@@ -47,7 +47,7 @@
 </template>
 
 <script>
-import scrollTo from '@/components/ScrollTo';
+import scrollTo from '@/components/ScrollTo/index.vue';
 
 export default {
   name: 'Pagination',

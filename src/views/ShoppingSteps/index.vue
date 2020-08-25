@@ -22,11 +22,11 @@
 </template>
 
 <script>
-import Step from '@/components/Step';
-import scrollTo from '@/components/ScrollTo';
-import Cart from './Cart';
-import Information from './Information';
-import Confirm from './Confirm';
+import Step from '@/components/Step/index.vue';
+import scrollTo from '@/components/ScrollTo/index.vue';
+import Cart from './Cart/index.vue';
+import Information from './Information/index.vue';
+import Confirm from './Confirm/index.vue';
 
 export default {
   name: 'ShoppingSteps',

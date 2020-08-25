@@ -34,7 +34,7 @@
         />
         <AddCart
           :quantity="bindingValue"
-          @addCart="$emit('addCart', data,bindingValue)"
+          @addCart="addCart"
         />
       </div>
     </div>
@@ -42,9 +42,9 @@
 </template>
 
 <script>
-import Pic from './Pic';
-import AddCart from './AddCart';
-import DetailPic from './DetailPic';
+import Pic from './Pic.vue';
+import AddCart from './AddCart.vue';
+import DetailPic from './DetailPic.vue';
 
 export default {
   name: 'ProductDetails',
@@ -71,6 +71,11 @@ export default {
       set(value) {
         this.$emit('update:quantity', value);
       },
+    },
+  },
+  methods: {
+    addCart() {
+      this.$emit('addCart', this.data, this.bindingValue);
     },
   },
 };

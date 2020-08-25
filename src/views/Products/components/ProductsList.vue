@@ -36,7 +36,7 @@
 
 <script>
 import { mapActions } from 'vuex';
-import Buttons from '@/components/HotProduct/Buttons';
+import Buttons from '@/components/HotProduct/Buttons.vue';
 
 export default {
   name: 'ProductsList',

@@ -1,5 +1,5 @@
 <template>
-  <section class="container product-details mt-200 mb-100">
+  <section class="container product-details pt-200 mb-100">
     <Loading :active.sync="$store.state.Loading.loading" />
     <ProductDetails
       v-if="product"
@@ -17,8 +17,8 @@
 </template>
 
 <script>
-import HotProduct from '@/components/HotProduct';
-import ProductDetails from './components/ProductDetails';
+import HotProduct from '@/components/HotProduct/index.vue';
+import ProductDetails from './components/ProductDetails.vue';
 
 export default {
   name: 'Product',

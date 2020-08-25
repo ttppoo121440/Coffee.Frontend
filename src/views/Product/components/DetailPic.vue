@@ -11,7 +11,7 @@
 </template>
 
 <script>
-import InputNumber from '@/components/InputNumber';
+import InputNumber from '@/components/InputNumber/index.vue';
 
 export default {
   name: 'DetailPic',

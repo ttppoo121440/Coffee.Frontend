@@ -3,7 +3,9 @@
     v-bind="settings"
     class="text-center category"
   >
-    <div class="category-item">
+    <div
+      class="category-item"
+    >
       <button
         type="button"
         class="btn btn-outline"
@@ -17,6 +19,7 @@
       v-for="category in categorys"
       :key="category"
       class="category-item"
+      style="width: 100px;"
     >
       <button
         type="button"
@@ -49,7 +52,7 @@ export default {
       active: '全部',
       settings: Object.freeze({
         speed: 500,
-        slidesToShow: 4,
+        slidesToShow: 5,
         slidesToScroll: 1,
         swipeToSlide: true,
         infinite: false,
@@ -58,7 +61,7 @@ export default {
           {
             breakpoint: 1200,
             settings: {
-              slidesToShow: 4,
+              slidesToShow: 5,
             },
           },
           {

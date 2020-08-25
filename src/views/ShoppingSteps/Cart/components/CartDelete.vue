@@ -3,7 +3,7 @@
     <button
       class="btn btn-outline p-2"
       type="button"
-      @click="$emit('cartDelete')"
+      @click="cartDelete"
     >
       <v-icon
         name="trash-alt"
@@ -16,5 +16,10 @@
 <script>
 export default {
   name: 'CartDelete',
+  methods: {
+    cartDelete() {
+      this.$emit('cartDelete');
+    },
+  },
 };
 </script>

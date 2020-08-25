@@ -7,9 +7,9 @@
 </template>
 
 <script>
-import Menu from '@/components/Menu';
-import Logo from '@/components/Logo';
-import Social from '@/components/Social';
+import Menu from '@/components/Menu/index.vue';
+import Logo from '@/components/Logo/index.vue';
+import Social from '@/components/Social/index.vue';
 
 export default {
   name: 'Header',

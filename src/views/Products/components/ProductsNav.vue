@@ -8,7 +8,7 @@
 </template>
 
 <script>
-import Pagination from '@/components/Pagination';
+import Pagination from '@/components/Pagination/index.vue';
 
 export default {
   name: 'ProductsNav',
@@ -45,7 +45,7 @@ export default {
     },
     categoryTotal() {
       return this.$store.state.Product.productList.filter((item) => (item.category === this.category
-        ? item : this.category === '全部' ? item : false)).length;
+        || this.category === '全部')).length;
     },
   },
   methods: {

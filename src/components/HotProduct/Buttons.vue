@@ -2,13 +2,13 @@
   <div class="list-btns">
     <button
       class="btn btn-outline btn-sm mr-2"
-      @click="$emit('goProductPage')"
+      @click="goProductPage"
     >
       觀看更多
     </button>
     <button
       class="btn btn-sm btn-sm"
-      @click="$emit('addCartHandler')"
+      @click="addCartHandler"
     >
       加到購物車
     </button>
@@ -18,5 +18,13 @@
 <script>
 export default {
   name: 'Buttons',
+  methods: {
+    goProductPage() {
+      this.$emit('goProductPage');
+    },
+    addCartHandler() {
+      this.$emit('addCartHandler');
+    },
+  },
 };
 </script>

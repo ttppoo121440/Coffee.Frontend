@@ -1,5 +1,9 @@
 <template>
   <section class="list-hot">
+    <Loading
+      :active.sync="$store.state.Loading.loading"
+      :is-full-page="false"
+    />
     <BgTitle
       :class-name="'right'"
       :title="title"
@@ -10,16 +14,21 @@
           {{ title }}
         </h2>
       </div>
-      <div class="row mx-0 list">
-        <HotList :data="product.hotProduct" />
-      </div>
+      <transition
+        v-if="hotProductData.length!==0"
+        name="page"
+        appear
+        tag="div"
+      >
+        <HotList :data="hotProductData" />
+      </transition>
       <div class="text-center pb-5 p-3">
         <button
           class="btn btn-outline btn-big"
           type="button"
           @click="$router.push('/products')"
         >
-          More
+          了解更多
         </button>
       </div>
     </div>
@@ -27,8 +36,8 @@
 </template>
 
 <script>
-import BgTitle from '../components/BgTitle';
-import HotList from './components/HotList';
+import BgTitle from '../components/BgTitle/index.vue';
+import HotList from './components/HotList.vue';
 
 export default {
   name: 'HomeHotProduct',
@@ -42,8 +51,9 @@ export default {
     };
   },
   computed: {
-    product() {
-      return this.$store.state.Product;
+    hotProductData() {
+      return this.$store.state.Product.hotProduct.length === 0 ? []
+        : this.$store.state.Product.hotProduct;
     },
   },
 };

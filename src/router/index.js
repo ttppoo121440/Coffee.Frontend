@@ -1,8 +1,8 @@
 import Vue from 'vue';
 import VueRouter from 'vue-router';
 import Home from '@/views/Home/index.vue';
-import Layout from '@/views/Layout';
-import ShoppingSteps from '@/views/ShoppingSteps';
+import Layout from '@/views/Layout/index.vue';
+import ShoppingSteps from '@/views/ShoppingSteps/index.vue';
 
 Vue.use(VueRouter);
 

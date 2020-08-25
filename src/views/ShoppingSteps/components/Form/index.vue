@@ -17,6 +17,7 @@
         :value.sync="formData[form.prop]"
         :max="form.max"
         :disabled="disabled"
+        :required="form.required"
       />
     </div>
     <div class="btn-group">
@@ -46,11 +47,11 @@
 </template>
 
 <script>
-import Email from './Email';
-import Select from './Select';
-import Tel from './Tel';
-import TextInput from './TextInput';
-import TextArea from './TextArea';
+import Email from './Email.vue';
+import Select from './Select.vue';
+import Tel from './Tel.vue';
+import TextInput from './TextInput.vue';
+import TextArea from './TextArea.vue';
 
 export default {
   name: 'Form',

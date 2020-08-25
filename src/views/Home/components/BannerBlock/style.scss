@@ -21,7 +21,7 @@
     bottom: 100px;
     left: 170px;
     z-index: -1;
-    background: url("~@/assets/images/banner.png") no-repeat center center;
+    background: url("~@/assets/images/banner.jpg") no-repeat center center;
     background-size: cover;
 
     @include media-down(lg) {
@@ -36,7 +36,7 @@
     &-text {
       position: absolute;
       font-size: 80px;
-      font-weight: 900;
+      font-weight: 500;
       color: $white;
       letter-spacing: 5px;
 

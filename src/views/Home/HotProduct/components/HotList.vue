@@ -1,7 +1,7 @@
 <template>
   <VueSlickCarousel
     v-bind="settings"
-    class="w-100"
+    class="w-100 list"
   >
     <div
       v-for="product in data"
@@ -37,7 +37,7 @@ import VueSlickCarousel from 'vue-slick-carousel';
 import 'vue-slick-carousel/dist/vue-slick-carousel.css';
 import 'vue-slick-carousel/dist/vue-slick-carousel-theme.css';
 import { mapActions } from 'vuex';
-import Buttons from '@/components/HotProduct/Buttons';
+import Buttons from '@/components/HotProduct/Buttons.vue';
 
 export default {
   name: 'HotList',

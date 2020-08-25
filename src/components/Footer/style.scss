@@ -7,6 +7,10 @@
     height: 100%;
     margin-left: auto;
 
+    @include media-down(lg) {
+      width: 60%;
+    }
+
     @include media-down(sm) {
       align-items: center;
       width: 100%;

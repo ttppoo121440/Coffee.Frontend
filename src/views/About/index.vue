@@ -40,7 +40,7 @@
         <li>
           <b />
           <div class="year">
-            <span>1998</span>
+            <span>2000</span>
           </div>
         </li>
       </ul>
@@ -55,7 +55,7 @@
 </template>
 
 <script>
-import Banner from '@/components/PagesHeader/Banner';
+import Banner from '@/components/PagesHeader/Banner.vue';
 
 export default {
   name: 'About',

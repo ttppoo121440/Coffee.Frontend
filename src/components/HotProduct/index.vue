@@ -1,5 +1,9 @@
 <template>
   <section class="list-hot no-bg">
+    <Loading
+      :active.sync="$store.state.Loading.loading"
+      :is-full-page="false"
+    />
     <div
       :key="title"
       class="p-3"
@@ -8,19 +12,25 @@
         {{ title }}
       </h2>
     </div>
-    <SlickCarousel
-      :key="$options.name"
-      :data="data"
-      :product-data="productData"
-      @goProductPage="goProductPage"
-      @addCartHandler="addCartHandler"
-    />
+    <transition
+      name="page"
+      appear
+    >
+      <SlickCarousel
+        v-if="data.length!==0"
+        :key="$options.name"
+        :data="data"
+        :product-data="productData"
+        @goProductPage="goProductPage"
+        @addCartHandler="addCartHandler"
+      />
+    </transition>
   </section>
 </template>
 
 <script>
 import { mapActions } from 'vuex';
-import SlickCarousel from './SlickCarousel';
+import SlickCarousel from './SlickCarousel.vue';
 
 export default {
   name: 'HotProduct',

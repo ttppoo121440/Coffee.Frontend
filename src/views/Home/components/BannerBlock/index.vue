@@ -9,8 +9,8 @@
 </template>
 
 <script>
-import BannerBottom from './BannerBottom';
-import CarouselSide from './CarouselSide';
+import BannerBottom from './BannerBottom.vue';
+import CarouselSide from './CarouselSide.vue';
 
 export default {
   name: 'Carousel',

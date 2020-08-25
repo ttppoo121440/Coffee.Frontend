@@ -1,24 +1,21 @@
 <template>
   <div class="container-fluid p-0">
-    <Loading :active.sync="$store.state.Loading.loading" />
-    <Header />
-    <BannerBlock />
-    <About />
-    <Navbar />
-    <LatestNews />
-    <HotProduct v-if="this.$store.state.Product.hotProduct.length !== 0" />
-    <Footer />
+    <component
+      :is="component"
+      v-for="component in componentList"
+      :key="component"
+    />
   </div>
 </template>
 
 <script>
-import Footer from '@/components/Footer';
-import Navbar from './components/Navbar';
-import Header from './components/Header';
-import BannerBlock from './components/BannerBlock';
-import About from './About';
-import LatestNews from './LatestNews';
-import HotProduct from './HotProduct';
+import Footer from '@/components/Footer/index.vue';
+import Navbar from './components/Navbar/index.vue';
+import Header from './components/Header/index.vue';
+import BannerBlock from './components/BannerBlock/index.vue';
+import About from './About/index.vue';
+import LatestNews from './LatestNews/index.vue';
+import HotProduct from './HotProduct/index.vue';
 
 export default {
   name: 'Home',
@@ -30,6 +27,19 @@ export default {
     HotProduct,
     Navbar,
     Footer,
+  },
+  data() {
+    return {
+      componentList: [
+        'Header',
+        'BannerBlock',
+        'About',
+        'LatestNews',
+        'HotProduct',
+        'Navbar',
+        'Footer',
+      ],
+    };
   },
   mounted() {
     this.$store.commit('Product/CLEAR_DATA');

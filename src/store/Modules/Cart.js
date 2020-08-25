@@ -1,6 +1,4 @@
-import {
-  createCart, deleteCart, createOrder,
-} from '@/utils/api';
+import { createCart, deleteCart, createOrder } from '@/utils/api';
 
 export default {
   namespaced: true,
@@ -55,10 +53,10 @@ export default {
       commit('DELETE_CART', id);
     },
     changeValue({ commit, state }, data) {
-      const id = data.id === undefined ? data.product.id : data.id;
+      const id = data.id ?? data.product.id;
       const list = state.goodsList.find((item) => item.product.id === id);
       if (!list) {
-        commit('ADD_CART', data);
+        commit('ADD CART', data);
       } else {
         commit('EDIT_CART', data);
       }
@@ -92,8 +90,8 @@ export default {
       localStorage.setItem('goodsList', JSON.stringify(state.goodsList));
     },
     ADD_CART(state, status) {
-      const id = status.id === undefined ? status.product.id : status.id;
-      const list = state.goodsList.find((item) => (item.product.id === id));
+      const id = status.id ?? status.product.id;
+      const list = state.goodsList.find((item) => item.product.id === id);
       if (!list) {
         state.goodsList.push({ product: status, quantity: 1 });
       } else {
@@ -124,7 +122,9 @@ export default {
       );
     },
     cartItemTotal(state) {
-      return state.goodsList.reduce((acc, current) => acc + current.quantity, 0) || 0;
+      return (
+        state.goodsList.reduce((acc, current) => acc + current.quantity, 0) || 0
+      );
     },
   },
 };

@@ -17,6 +17,7 @@
           >
           <span>{{ news.text }}</span>
         </div>
+        <span class="my-3">{{ news.title }}</span>
         <span class="text-primary">{{ news.date }}</span>
       </div>
     </div>

@@ -31,10 +31,10 @@
 </template>
 
 <script>
-import Banner from '@/components/PagesHeader/Banner';
-import Category from '@/components/Category';
-import ProductsList from './components/ProductsList';
-import ProductsNav from './components/ProductsNav';
+import Banner from '@/components/PagesHeader/Banner.vue';
+import Category from '@/components/Category/index.vue';
+import ProductsList from './components/ProductsList.vue';
+import ProductsNav from './components/ProductsNav.vue';
 
 export default {
   name: 'Product',
@@ -80,8 +80,7 @@ export default {
       const startNum = (this.currentIndex - 1) * this.pageSize;
       const endNum = startNum + this.pageSize;
 
-      return this.$store.state.Product.productList.filter((item) => (item.category === this.category
-        ? item : this.category === '全部' ? item : false)).slice(startNum, endNum);
+      return this.$store.state.Product.productList.filter((item) => item.category === this.category || this.category === '全部').slice(startNum, endNum);
     },
   },
   mounted() {

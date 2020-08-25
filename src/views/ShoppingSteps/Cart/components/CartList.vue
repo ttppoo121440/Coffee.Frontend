@@ -61,10 +61,10 @@
 
 <script>
 import { mapActions } from 'vuex';
-import InputNumber from '@/components/InputNumber';
+import InputNumber from '@/components/InputNumber/index.vue';
 import AnimatedNumber from 'animated-number-vue';
-import CartFooter from './CartFooter';
-import CartDelete from './CartDelete';
+import CartFooter from './CartFooter.vue';
+import CartDelete from './CartDelete.vue';
 
 export default {
   name: 'CartList',

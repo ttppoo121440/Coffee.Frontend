@@ -23,8 +23,8 @@
 </template>
 
 <script>
-import Menu from '@/components/Menu';
-import Social from '@/components/Social';
+import Menu from '@/components/Menu/index.vue';
+import Social from '@/components/Social/index.vue';
 
 export default {
   name: 'Footer',

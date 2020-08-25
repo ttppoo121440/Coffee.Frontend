@@ -91,8 +91,12 @@
 .about {
   &-pic {
     left: 41.5%;
-    background-image: url('~@/assets/images/about.png');
+    background-image: url('~@/assets/images/about-page.jpg');
     filter: none;
+
+    @include media-down(lg) {
+      background-image: url('~@/assets/images/mobild/about-page.jpg');
+    }
 
     @include media-down(md) {
       left: 0;

@@ -1,11 +1,5 @@
 <template>
-  <div class="page-banner">
-    <img
-      src="~@/assets/images/page-banner.png"
-      alt="banner"
-      class="w-100"
-    >
-  </div>
+  <div class="page-banner" />
 </template>
 
 <script>
@@ -17,9 +11,12 @@ export default {
 <style lang="scss">
 
 .page-banner {
-  img {
-    min-height: 300px;
-    max-height: 600px;
-  }
+  object-fit: cover;
+  position: relative;
+  z-index: -1;
+  height: 600px;
+  background: url("~@/assets/images/page-banner.jpg") no-repeat center center;
+  background-position-y: 80%;
+  background-size: cover;
 }
 </style>

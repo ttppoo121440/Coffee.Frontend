@@ -44,6 +44,7 @@
       margin: 20px 0;
       margin-right: auto;
       font-size: 48px;
+      font-weight: 100;
 
       @include media-down(sm) {
         font-size: 24px;
@@ -53,6 +54,7 @@
     p {
       margin-top: 30px;
       font-size: 24px;
+      font-weight: 100;
       line-height: 2;
       letter-spacing: 1.5px;
 
@@ -67,12 +69,13 @@
     top: 0;
     bottom: 0;
     left: 50%;
-    background-image: url('~@/assets/images/about.png');
+    background-image: url('~@/assets/images/about.jpg');
     background-position: center center;
     background-size: cover;
 
     @include media-down(lg) {
       left: 0;
+      background-image: url('~@/assets/images/mobild/about.jpg');
       filter: brightness(50%);
     }
   }
