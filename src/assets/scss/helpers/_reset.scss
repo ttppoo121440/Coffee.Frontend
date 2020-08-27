@@ -12,7 +12,6 @@
 // Change from `box-sizing: content-box` so that `width` is not affected by `padding` or `border`.
 html {
   box-sizing: border-box;
-  height: 100%;
 }
 
 *,
@@ -37,7 +36,6 @@ main {
 // 5. Change the default tap highlight to be completely transparent in iOS.
 body {
   position: relative;
-  height: 100%;
   margin: 0; // 1
   font-family: 'Noto Sans TC', sans-serif;
   font-weight: $font-weight-base;

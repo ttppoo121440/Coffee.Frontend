@@ -91,11 +91,11 @@
 .about {
   &-pic {
     left: 41.5%;
-    background-image: url('~@/assets/images/about-page.jpg');
+    background-image: url('https://hexschool-api.s3.us-west-2.amazonaws.com/custom/Y9njaY7u4JoMFqS2okRfWmlaO5Nc0N7NVqUi8Q3iIH0NnHgJ2NeNChSYQ1ZjqOlDq9Anm3DZsNl0qz13mNbcZ4q55cRuKE5hxnc63GyfSDlFuLol2njWJDNCpPOrnZyp.jpg');
     filter: none;
 
     @include media-down(lg) {
-      background-image: url('~@/assets/images/mobild/about-page.jpg');
+      background-image: url('https://hexschool-api.s3.us-west-2.amazonaws.com/custom/2mKu79Pe2EudyV8nBInLUl5RMSsusLChvNKDcX8835T8fNR8bXdWJYCfakyCQUunhwWfMuHmPC1owkiQIiIDHnRV6rJnX7At8XmV6HxurHqOn0lRU5yK5JxSCEmiqCRs.jpg');
     }
 
     @include media-down(md) {

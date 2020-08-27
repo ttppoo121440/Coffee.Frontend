@@ -69,13 +69,13 @@
     top: 0;
     bottom: 0;
     left: 50%;
-    background-image: url('~@/assets/images/about.jpg');
+    background-image: url('https://hexschool-api.s3.us-west-2.amazonaws.com/custom/sJzStg8P7DLXlMhNFa0fcI7kKd6uojzmGQ5Z5xApGd3HpgyIM32ALxH5Tw4T1Wn6TPQ5wb9wDa0vt0EfMN11sgGDAP8KpcHDNGL8StzwUiEys0gkzqhbvM9x8bf9tfUK.jpg');
     background-position: center center;
     background-size: cover;
 
     @include media-down(lg) {
       left: 0;
-      background-image: url('~@/assets/images/mobild/about.jpg');
+      background-image: url('https://hexschool-api.s3.us-west-2.amazonaws.com/custom/z1aNddhPYNCWDgp8SiGiA3DOfKsPoY8LJm3vS5bET8iWMcupGwOhgDGYm5MDb1Mn7z4TOeRI5eqIGISgRVkkxPmdGmcpItVYghfJZOMgL4BlkKeucWYAmrsaurzViyD0.jpg');
       filter: brightness(50%);
     }
   }

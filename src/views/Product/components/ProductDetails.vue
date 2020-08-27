@@ -33,10 +33,20 @@
           :quantity.sync="bindingValue"
         />
         <AddCart
+          :id="productId"
           :quantity="bindingValue"
           @addCart="addCart"
         />
       </div>
+    </div>
+    <div
+      :key="'img'"
+      class="text-center w-100 py-5"
+    >
+      <img
+        src="https://hexschool-api.s3.us-west-2.amazonaws.com/custom/0AFndlzAf1G9w0kfYfGpUawNzhoBQ0q54ILC4Z9CSPsXNQw6Iz2DxxD9o115vpMoQUxGyFMKaBbI6ZQhMgmgXfohYg7SWRrVKK9qIgFOknnBt37e1wPN4yAwsXlMnc4c.jpg"
+        class="img-fluid"
+      >
     </div>
   </transition-group>
 </template>
@@ -64,6 +74,9 @@ export default {
     },
   },
   computed: {
+    productId() {
+      return this.data.id ?? '';
+    },
     bindingValue: {
       get() {
         return this.quantity;

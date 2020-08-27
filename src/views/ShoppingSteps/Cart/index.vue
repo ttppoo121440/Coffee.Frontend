@@ -1,9 +1,27 @@
 <template>
   <section class="my-110">
     <div class="text-center my-5">
-      <h1 class="title">
+      <h1
+        v-if="this.$store.state.Cart.goodsList.length !== 0"
+        class="title"
+      >
         購物車
       </h1>
+      <div
+        v-else
+      >
+        <h1 class="d-block mb-5">
+          您的購物車是空的，
+          趕快加入喜歡的商品吧！
+        </h1>
+        <button
+          type="button"
+          class="btn"
+          @click="$router.push('/products')"
+        >
+          繼續購物
+        </button>
+      </div>
     </div>
     <div class="container">
       <CartList
@@ -52,8 +70,4 @@ export default {
 };
 </script>
 
-<style lang="scss" src="./style.scss">
-.test {
-  position: relative;
-}
-</style>
+<style lang="scss" src="./style.scss"></style>

@@ -8,7 +8,10 @@
       :key="product.id"
       class="p-3"
     >
-      <div class="list-item">
+      <div
+        class="list-item"
+        @click="goProductPage(product.id)"
+      >
         <div class="list-pic mb-2">
           <img
             :src="product.imageUrl"
@@ -23,6 +26,7 @@
           </h3>
           <p>售價：{{ product.price }}</p>
           <Buttons
+            :id="product.id"
             @goProductPage="goProductPage(product.id)"
             @addCartHandler="addCartHandler(product)"
           />

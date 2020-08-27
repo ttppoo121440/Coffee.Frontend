@@ -65,7 +65,13 @@ export default {
             },
           },
           {
-            breakpoint: 767,
+            breakpoint: 576,
+            settings: {
+              slidesToShow: 4,
+            },
+          },
+          {
+            breakpoint: 450,
             settings: {
               slidesToShow: 3,
             },
@@ -77,6 +83,7 @@ export default {
   methods: {
     categoryHandler(category) {
       this.active = category;
+
       this.$emit('categoryHandler', category);
     },
   },

@@ -1,10 +1,20 @@
 .pagination {
   display: flex;
-  justify-content: space-evenly;
+  justify-content: center;
   padding: 0;
   margin: 100px 0;
 
+  @include media-down(sm) {
+    justify-content: space-evenly;
+  }
+
   .page-item {
+    margin-right: 20px;
+
+    @include media-down(sm) {
+      margin-right: 0;
+    }
+
     &.disabled .page-link {
       pointer-events: none;
       background-color: $white;

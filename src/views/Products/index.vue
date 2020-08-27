@@ -11,11 +11,15 @@
         </h1>
       </div>
       <div class="container text-center py-5">
-        <Category
-          v-if="$store.state.Product.category.length !== 0"
-          :categorys="$store.state.Product.category"
-          @categoryHandler="categoryHandler"
-        />
+        <div class="row justify-content-center">
+          <div class="col-xl-8 col-lg-9 col-md-12 col-sm-12">
+            <Category
+              v-if="$store.state.Product.category.length !== 0"
+              :categorys="$store.state.Product.category"
+              @categoryHandler="categoryHandler"
+            />
+          </div>
+        </div>
       </div>
       <ProductsList
         class="mb-5"
