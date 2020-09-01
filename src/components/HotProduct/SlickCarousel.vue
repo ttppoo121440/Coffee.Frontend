@@ -10,9 +10,11 @@
     >
       <div
         class="list-item"
-        @click="goProductPage(product.id)"
       >
-        <div class="list-pic mb-2">
+        <div
+          class="list-pic mb-2"
+          @click="goProductPage(product.id)"
+        >
           <img
             :src="product.imageUrl"
             alt="list1"
