@@ -1,7 +1,10 @@
 <template>
   <section>
     <Loading :active.sync="$store.state.Loading.loading" />
-    <Banner id="banner" />
+    <Banner
+      id="banner"
+      :pic="'https://hexschool-api.s3.us-west-2.amazonaws.com/custom/2bGxSXOzhZrSWoj7O27f7ohZUQ27pYEsv5tOhZ2zw3Rn63bsBpE7E70J5LETFZcQTWrwOOzt3qvVz1r8UhvhgUYvi3X2UBywRzJ52PdynqUi516G6d02USeym5bnC885.jpg'"
+    />
     <div class="container">
       <div class="text-center my-5">
         <h1

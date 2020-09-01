@@ -1,6 +1,6 @@
 <template>
   <section>
-    <Banner />
+    <Banner :pic="'https://hexschool-api.s3.us-west-2.amazonaws.com/custom/7HIp3i8MVGaW5Xb95o4PBU7OdORi1Uy5QBhEm8eeTNu6U1RthHw1zyZ1970gwttrAKyir6kkIsIc92jbbjezZb50Ux0mT6RzMW22VOLSx4Xev05uWxrQW1ZOVh2adXdY.jpg'" />
     <div class="container">
       <div class="text-center my-100">
         <h1 class="title">

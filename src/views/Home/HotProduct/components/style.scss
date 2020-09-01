@@ -4,12 +4,8 @@ div:focus {
 
 .slick-prev::before,
 .slick-next::before {
-  font-size: 40px;
+  font-size: 44px;
   color: $primary;
-
-  @include media-down(sm) {
-    font-size: 20px;
-  }
 }
 
 .slick-prev,
@@ -19,7 +15,7 @@ div:focus {
 
 .slick-prev {
   @include media-down(sm) {
-    left: -10px;
+    left: -6px;
   }
 }
 
@@ -27,6 +23,6 @@ div:focus {
   right: -5px;
 
   @include media-down(sm) {
-    right: -10px;
+    right: 18px;
   }
 }

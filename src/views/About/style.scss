@@ -91,12 +91,8 @@
 .about {
   &-pic {
     left: 41.5%;
-    background-image: url('https://hexschool-api.s3.us-west-2.amazonaws.com/custom/Y9njaY7u4JoMFqS2okRfWmlaO5Nc0N7NVqUi8Q3iIH0NnHgJ2NeNChSYQ1ZjqOlDq9Anm3DZsNl0qz13mNbcZ4q55cRuKE5hxnc63GyfSDlFuLol2njWJDNCpPOrnZyp.jpg');
+    background-image: url('https://hexschool-api.s3.us-west-2.amazonaws.com/custom/nMpbTctOZv0Sj5GnpeQe0P1SWHFG8FrNQwQz52L2XikMctLFzkrJYQPyijAylqdaiy8zuQcZFy6GQuHYlX46l0lM0IQu9Tbp5kMt5OXz2f8eKMiMI2vagJCcKQAvOT6S.jpg');
     filter: none;
-
-    @include media-down(lg) {
-      background-image: url('https://hexschool-api.s3.us-west-2.amazonaws.com/custom/2mKu79Pe2EudyV8nBInLUl5RMSsusLChvNKDcX8835T8fNR8bXdWJYCfakyCQUunhwWfMuHmPC1owkiQIiIDHnRV6rJnX7At8XmV6HxurHqOn0lRU5yK5JxSCEmiqCRs.jpg');
-    }
 
     @include media-down(md) {
       left: 0;

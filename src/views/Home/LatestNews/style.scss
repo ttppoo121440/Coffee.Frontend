@@ -75,12 +75,18 @@
     }
   }
 
+  .slick-prev::before,
+  .slick-next::before {
+    font-size: 20px;
+  }
+
   .slick-prev {
     top: 125px;
   }
 
   .slick-next {
     top: 120px;
+    right: -4px;
 
     @include media-down(sm) {
       top: 125px;

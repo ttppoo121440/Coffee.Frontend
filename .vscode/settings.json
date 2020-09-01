@@ -5,8 +5,6 @@
   "editor.codeActionsOnSave":{
     "source.fixAll": true
   },
-  // 自動修正錯誤
-  "eslint.autoFixOnSave": true,
   // 提示錯誤訊息
   "eslint.alwaysShowStatus": true,
   // 偵測的檔案
@@ -14,10 +12,11 @@
     "extensions":[".html",".js",".vue"]
   },
   "eslint.validate": [
-    {"language": "html","autoFix": true},
-    {"language": "javascript","autoFix": true},
-    {"language": "vue","autoFix": true},
-  ], 
+    "vue",
+    "html",
+    "javascript",
+    "typescript"
+  ],
   "[shellscript]": {
     "files.eol": "\n"
   },

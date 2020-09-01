@@ -36,5 +36,6 @@ export default {
       this.scrollTo(anchor.offsetHeight);
     },
   },
+
 };
 </script>
