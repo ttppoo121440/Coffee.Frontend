@@ -1,5 +1,9 @@
 # coffee.frontend
 
+## Demo
+
+https://ttppoo121440.github.io/Coffee.Frontend/
+
 ## Project setup
 ```
 npm install
